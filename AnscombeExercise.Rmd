@@ -97,7 +97,7 @@ You might decide you don't want to bother with *all* the elements of `stat.desc`
 stat.desc(anscombe, basic=FALSE, norm=FALSE, p=0.99)
 ```
 
-By setting the arguments `basic=FALSE` and `norm=FALSE`, we've told R we only care about the information that the `desc` argument gives us. Note, because we only want the `desc` argument we don't need to bother typing it in. It's set to `true` by default. You'd get the same result by typing `stat.desc(anscombe, basic=FALSE, desc=TRUE, norm=FALSE, p=0.99)` which you can try yourself. We've also changes the significance level of the confidence intervals to a p level of 0.99. 
+By setting the arguments `basic=FALSE` and `norm=FALSE`, we've told R we only care about the information that the `desc` argument gives us. Note, because we only want the `desc` argument we don't need to bother typing it in. It's set to `true` by default. You'd get the same result by typing `stat.desc(anscombe, basic=FALSE, desc=TRUE, norm=FALSE, p=0.99)` which you can try yourself. We've also changed the confidence interval width to 0.99 (i.e. 99 %). 
 
 In this example, there's no real harm in getting all the information `stat.desc` can give us, but when we start plotting the data we will want to play about with the arguments in the `ggplot` command, so that's why you're seeing them here!
 

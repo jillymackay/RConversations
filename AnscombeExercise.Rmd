@@ -35,7 +35,7 @@ By the end of this workshop you should be able to . . .
 
 
 #The R Environment
-Here are the packages you'll need for this exercise. (Remember, if you don't have one of these packages you can install it with the command: `install.packages(packagename)`
+Here are the packages you'll need for this exercise. (Remember, if you don't have one of these packages you can install it with the command: `install.packages("packagename")`
 ```{r, message=FALSE, warning=FALSE}
 library(ggplot2)
 library(gridExtra)

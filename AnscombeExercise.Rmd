@@ -204,7 +204,7 @@ LongAnscombe <- anscombe %>%
   mutate(observation=seq_len(n()))%>%
   gather(key, value, -observation)%>% 
   separate(key, c("variable", "set") , 1 , convert=TRUE)%>%
-  mutate(set=c("1", "2", "3", "4")[set])%>%
+  mutate(set=factor(set))%>%
   spread(variable, value)
 LongAnscombe
 ```
@@ -214,7 +214,22 @@ Now I want to plot it!
 (I quite like [this colour cheatsheet](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf) for the `scale_colour_manual` function)
 
 ```{r}
-AnscombeQuartet <- ggplot (data=LongAnscombe, aes (x=x, y=y, color=set, shape=set)) + geom_point() + scale_colour_manual(name = "Quartet Set", labels = c("One", "Two", "Three", "Four"), values=c("steelblue4", "springgreen4", "slateblue4", "violetred4")) + scale_shape_manual(name = "Quartet Set", labels=c("One", "Two", "Three", "Four"), values=c(16, 17, 18, 15)) + stat_smooth(method = "lm", se = FALSE) + theme_bw() + expand_limits (x=0, y=0) + ggtitle ("The Anscombe Quartet") + xlab ("The X Variable") + ylab ("The Y Variable") + facet_grid(. ~ set)
+AnscombeQuartet <- ggplot (data=LongAnscombe,
+                           aes (x=x, y=y, color=set, shape=set)) +
+  geom_point() +
+  scale_colour_manual(name = "Quartet Set",
+                      labels = c("One", "Two", "Three", "Four"),
+                      values=c("steelblue4", "springgreen4", "slateblue4", "violetred4")) +
+  scale_shape_manual(name = "Quartet Set",
+                     labels=c("One", "Two", "Three", "Four"),
+                     values=c(16, 17, 18, 15)) +
+  stat_smooth(method = "lm", se = FALSE, lwd = 0.5) +
+  theme_bw() +
+  expand_limits (x=0, y=0) +
+  ggtitle ("The Anscombe Quartet") +
+  xlab ("The X Variable") +
+  ylab ("The Y Variable") +
+  facet_grid(. ~ set)
 AnscombeQuartet
 ```
 

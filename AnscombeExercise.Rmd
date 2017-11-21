@@ -1,0 +1,242 @@
+---
+title: "The Anscombe Exercise"
+author: "Jilly MacKay"
+date: "21 November 2017"
+output:
+  html_document:
+    keep_md: true
+    theme: spacelab
+    highlight: haddock
+    toc: true 
+    toc_float: true
+    toc_depth: 3
+---
+##About This Exercise
+**Exercise Type:** Confidence Builder
+
+*Confidence Builders are designed to get you more comfortable with R. We'll go through bits of code more or less step-by-step, and describe the reasoning behind certain actions. Remember - it's not cheating to copy code from this document and paste it into your R Studio console!*
+
+**Exercise Suitability:** Beginner
+
+*If you have R Studio installed on your machine and you know what an object is, you can work through this material.*
+
+#The Anscombe Exercise
+This exercise will take you through a really fun little dataset called the *Anscombe Quartet*. I've been trying to teach this exercise using data I've made up myself, and it's never quite worked. Imagine my delight when I heard that Francis Anscombe had already created the perfect dataset for me! At least, according to Wikipedia, no one knows exactly how he came up with it.
+
+The **aim** of this exercise is to make you more comfortable with entering code in R. 
+
+##Learning Outcomes
+By the end of this workshop you should be able to . . .
+
+* Provide descriptive statistics for data
+* Run a simple regression on data
+* Change arguments in a function
+* Create visualisations in R
+
+
+#The R Environment
+Here are the packages you'll need for this exercise. (Remember, if you don't have one of these packages you can install it with the command: `install.packages(packagename)`
+```{r}
+library(ggplot2)
+library(gridExtra)
+library(pastecs)
+library(tidyr)
+library(dplyr)
+```
+
+
+#The Anscombe Dataset
+The Anscombe dataset is really interesting and comes pre-loaded as part of the package `datasets`. This is a package which comes as standard in any R installation and so we can look at it immediately just by typing the name of the dataset into R Studio. 
+
+R Studio will show us all rows of this dataset because it's quite small (only 11 rows). If we had a larger dataset, it would cut off after about 10 rows.
+
+```{r}
+anscombe 
+```
+
+
+
+#Running Descriptive Statistics
+Let's start by exploring the means and medians of all these variables. There is a very handy command `stat.desc` from the package`pastecs` which can do this for us. 
+
+(Note - there are LOADS of packages which give you descriptive stats. Check out [this statmethods page](https://www.statmethods.net/stats/descriptives.html) for more examples. I just personally like `pastecs`.)
+
+```{r}
+stat.desc(anscombe)
+```
+
+For each variable in the array, `stat.desc` gives us:
+
+* `nbr.val` Number of values within the variable
+* `nbr.null` Number of null values
+* `nbr.na` Number of missing values
+* `min` Minimum value
+* `max` Maximum value
+* `range` Maximum-minimum value
+* `sum` Sum of all non-missing values
+* `median` The median value
+* `mean` The mean value
+* `SE.mean` The standard error of the mean
+* `CI.mean.0.95` The 95% confidence intervals of this mean
+* `var` The variance of this variable
+* `std.dev` The standard deviation of the mean
+* `coef.var` The variation coefficient (standard deviation/mean)
+
+With these descriptive statistics, we might want to start writing our interpretation of the data. For example ...
+
+> The average score of *x* was 9 ±3.3 standard deviations.
+
+###Changing Arguments in a Function
+
+You might decide you don't want to bother with *all* the elements of `stat.desc` and so you could explore how to modify the command by asking R `help("stat.desc")` which will show you the help documentation for the function. Note that it talks about *arguments*. 
+
+```{r}
+stat.desc(anscombe, basic=FALSE, norm=FALSE, p=0.99)
+```
+
+By setting the arguments `basic=FALSE` and `norm=FALSE`, we've told R we only care about the information that the `desc` argument gives us. Note, because we only want the `desc` argument we don't need to bother typing it in. It's set to `true` by default. You'd get the same result by typing `stat.desc(anscombe, basic=FALSE, desc=TRUE, norm=FALSE, p=0.99)` which you can try yourself. We've also changes the significance level of the confidence intervals to a p level of 0.99. 
+
+In this example, there's no real harm in getting all the information `stat.desc` can give us, but when we start plotting the data we will want to play about with the arguments in the `ggplot` command, so that's why you're seeing them here!
+
+#Run a Regression
+We're going to run four regressions for this dataset (all four *x*s against all 4 *y*s) and explore them. This will be done using R's inbuilt stats package, so there's no need to load any specific package into our library. 
+
+```{r}
+regression1 <- lm (y1~x1, data=anscombe)
+regression2 <- lm (y2~x2, data=anscombe)
+regression3 <- lm (y3~x3, data=anscombe)
+regression4 <- lm (y4~x4, data=anscombe)
+summary (regression1)
+summary (regression2)
+summary (regression3)
+summary (regression4)
+```
+
+Here we might want to report these findings. 
+
+> There was a significant, positive relationship between *x* and *y* (F^1,9^=18, p=0.002) in which *x* explained approximately 63% of the variation observed in *y*.
+
+Now you're probably thinking "Great! Let's write up the paper and go home!"
+
+#Visualising Data
+Everything we've seen so far has shown us that we have identical relationships between *x* and *y* in the Anscombe dataset. So here's what we should have done first . . . 
+
+We're going to use `ggplot` for this. (We're also going to lean very heavily on [Ian and Stella's great ggplot tutorial](https://ianhandel.github.io/plotting-with-r/index.html) which I recommend if you want to learn more about `ggplot`). We'll walk through building the first chart and then build the others in one go. 
+
+##Understanding ggplot layers
+
+```{r}
+ggplot (data=anscombe, aes(x=x1, y=y1))
+```
+
+The `ggplot` command first needs to know what *data* to use, (the `data` argument) and then what *aesthetics* ( the `aes` argument). But you will have spotted pretty quickly that there's no data in there yet! We need to start layering information into the `ggplot` command. The two most important types of layers are the geometric elements (`geoms`) and statistical transformations (`stats`). 
+
+We'll begin by adding a layer of points with the `geom_point` function.
+
+```{r}
+ggplot (data=anscombe, aes(x=x1, y=y1)) + geom_point()
+```
+
+Now we're getting somewhere! Let's add a statistical layer. 
+
+```{r}
+ggplot (data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth (method="lm", se=FALSE)
+```
+
+This looks like a proper chart! Still, your research methods teacher will probably shout at you if you don't have the x and y axis start at zero . . . 
+
+```{r}
+ggplot (data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth(method="lm", se=FALSE) + expand_limits(x=0, y=0)
+```
+
+And she'll also shout at you for not having the x and y axis share sensible scales 
+
+```{r}
+ggplot (data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth(method="lm", se=FALSE) + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2))
+```
+
+And why is the background grey? You know that's a waste of ink if you print it out. 
+
+```{r}
+ggplot(data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth(method="lm", se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2))
+```
+
+Maybe you need a title, and better axis labels too?
+
+```{r}
+ggplot(data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth(method="lm",se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2)) + ggtitle("Anscombe Dataset 1") + xlab("Variable X1") + ylab("Variable Y1")
+```
+
+##Building ggplots
+Personally, I like to make my ggplots objects like so . . . 
+```{r}
+Anscombe1 <- ggplot(data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth(method="lm",se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2)) + ggtitle("Anscombe Dataset 1") + xlab("Variable X1") + ylab("Variable Y1")
+```
+
+Then I can call them back much more easily if I want to look at them again
+
+```{r}
+Anscombe1
+```
+
+And now I can combine these into a grid. 
+```{r}
+Anscombe2 <- ggplot(data=anscombe, aes(x=x2, y=y2)) + geom_point() + stat_smooth(method="lm", se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2)) + ggtitle("Anscombe Dataset 2") + xlab("Variable X2") + ylab("Variable Y2")
+Anscombe3 <- ggplot(data=anscombe, aes(x=x3, y=y3)) + geom_point() + stat_smooth(method="lm", se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2)) + ggtitle("Anscombe Dataset 3") + xlab("Variable X3") + ylab("Variable Y3")
+Anscombe4 <- ggplot(data=anscombe, aes(x=x4, y=y4)) + geom_point() + stat_smooth(method="lm", se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2)) + ggtitle("Anscombe Dataset 4") + xlab("Variable X4") + ylab("Variable Y4")
+
+#And now let's put them all together!
+
+grid.arrange(Anscombe1, Anscombe2, Anscombe3, Anscombe4, top="This is why you always visualise data first!")
+```
+
+
+Lesson learned, eh?!
+
+#Where Do We Go From Here?
+If you spend enough time on it, you can create truly beautiful visualisations in `ggplot2`. Play about with this code and see what you can do with it - share your best attempts! 
+
+
+I want to create a chart with all the sets overlaid, so I need all the x values in one column, all the y columns in another, and a new factor to tell me which set it belonged to. To change the shape of the data I'm going to use the `tidyr` and `dplyr` packages to do this. 
+
+```{r}
+LongAnscombe <- anscombe %>%
+  mutate(observation=seq_len(n()))%>%
+  gather(key, value, -observation)%>% 
+  separate(key, c("variable", "set") , 1 , convert=TRUE)%>%
+  mutate(set=c("1", "2", "3", "4")[set])%>%
+  spread(variable, value)
+LongAnscombe
+```
+
+Now I want to plot it!
+
+(I quite like [this colour cheatsheet](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf) for the `scale_colour_manual` function)
+
+```{r}
+AnscombeQuartet <- ggplot (data=LongAnscombe, aes (x=x, y=y, color=set, shape=set)) + geom_point() + scale_colour_manual(name = "Quartet Set", labels = c("One", "Two", "Three", "Four"), values=c("steelblue4", "springgreen4", "slateblue4", "violetred4")) + scale_shape_manual(name = "Quartet Set", labels=c("One", "Two", "Three", "Four"), values=c(16, 17, 18, 15)) + stat_smooth(method = "lm", se = FALSE) + theme_bw() + expand_limits (x=0, y=0) + ggtitle ("The Anscombe Quartet") + xlab ("The X Variable") + ylab ("The Y Variable") + facet_grid(. ~ set)
+AnscombeQuartet
+```
+
+Start messing about with this bit of `ggplot` code to produce your prettiest examples of the Anscombe Quartet. If you feel like you've spent enough time visualising them, here's what I suggest you do next...
+
+`install.packages("datasauRus")`
+```{r, echo=FALSE}
+library(datasauRus)
+```
+And then you can do this . . .
+
+```{r}
+ggplot(datasaurus_dozen, aes(x=x, y=y, colour=dataset))+
+  geom_point()+
+  theme_void()+
+  theme(legend.position = "none")+
+  facet_wrap(~dataset, ncol=3)
+```
+
+And check out these:
+```{r}
+stat.desc(datasaurus_dozen_wide, basic=FALSE, norm=FALSE)
+```
+
+Got the message yet? ;)

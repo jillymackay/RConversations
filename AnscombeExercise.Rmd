@@ -35,13 +35,16 @@ By the end of this workshop you should be able to . . .
 
 
 #The R Environment
-Here are the packages you'll need for this exercise. (Remember, if you don't have one of these packages you can install it with the command: `install.packages(packagename)`
-```{r}
+Here are the packages you'll need for this exercise. (Remember, if you don't have one of these packages you can install it with the command: `install.packages("packagename")`
+```{r, message=FALSE, warning=FALSE}
 library(ggplot2)
 library(gridExtra)
 library(pastecs)
 library(tidyr)
 library(dplyr)
+```
+```{r, echo = FALSE}
+opts = options(digits = 3)
 ```
 
 
@@ -94,7 +97,7 @@ You might decide you don't want to bother with *all* the elements of `stat.desc`
 stat.desc(anscombe, basic=FALSE, norm=FALSE, p=0.99)
 ```
 
-By setting the arguments `basic=FALSE` and `norm=FALSE`, we've told R we only care about the information that the `desc` argument gives us. Note, because we only want the `desc` argument we don't need to bother typing it in. It's set to `true` by default. You'd get the same result by typing `stat.desc(anscombe, basic=FALSE, desc=TRUE, norm=FALSE, p=0.99)` which you can try yourself. We've also changes the significance level of the confidence intervals to a p level of 0.99. 
+By setting the arguments `basic=FALSE` and `norm=FALSE`, we've told R we only care about the information that the `desc` argument gives us. Note, because we only want the `desc` argument we don't need to bother typing it in. It's set to `true` by default. You'd get the same result by typing `stat.desc(anscombe, basic=FALSE, desc=TRUE, norm=FALSE, p=0.99)` which you can try yourself. We've also changed the confidence interval width to 0.99 (i.e. 99 %). 
 
 In this example, there's no real harm in getting all the information `stat.desc` can give us, but when we start plotting the data we will want to play about with the arguments in the `ggplot` command, so that's why you're seeing them here!
 
@@ -134,43 +137,78 @@ The `ggplot` command first needs to know what *data* to use, (the `data` argumen
 We'll begin by adding a layer of points with the `geom_point` function.
 
 ```{r}
-ggplot (data=anscombe, aes(x=x1, y=y1)) + geom_point()
+ggplot (data=anscombe, aes(x=x1, y=y1)) +
+  geom_point()
 ```
 
 Now we're getting somewhere! Let's add a statistical layer. 
 
 ```{r}
-ggplot (data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth (method="lm", se=FALSE)
+ggplot (data=anscombe, aes(x=x1, y=y1)) +
+  geom_point() +
+  stat_smooth (method="lm", se=FALSE)
 ```
 
 This looks like a proper chart! Still, your research methods teacher will probably shout at you if you don't have the x and y axis start at zero . . . 
 
 ```{r}
-ggplot (data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth(method="lm", se=FALSE) + expand_limits(x=0, y=0)
+ggplot (data=anscombe, aes(x=x1, y=y1)) +
+  geom_point() +
+  stat_smooth(method="lm", se=FALSE) +
+  expand_limits(x=0, y=0)
 ```
 
 And she'll also shout at you for not having the x and y axis share sensible scales 
 
 ```{r}
-ggplot (data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth(method="lm", se=FALSE) + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2))
+ggplot (data=anscombe, aes(x=x1, y=y1)) +
+  geom_point() +
+  stat_smooth(method="lm", se=FALSE) +
+  expand_limits(x=0, y=0) +
+  scale_x_continuous(breaks = seq(0, 20, 2)) +
+  scale_y_continuous(breaks = seq(0, 10, 2))
 ```
 
 And why is the background grey? You know that's a waste of ink if you print it out. 
 
 ```{r}
-ggplot(data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth(method="lm", se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2))
+ggplot(data=anscombe, aes(x=x1, y=y1)) +
+  geom_point() +
+  stat_smooth(method="lm", se=FALSE) +
+  theme_bw() +
+  expand_limits(x=0, y=0) +
+  scale_x_continuous(breaks = seq(0, 20, 2)) +
+  scale_y_continuous(breaks = seq(0, 10, 2))
 ```
 
 Maybe you need a title, and better axis labels too?
 
 ```{r}
-ggplot(data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth(method="lm",se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2)) + ggtitle("Anscombe Dataset 1") + xlab("Variable X1") + ylab("Variable Y1")
+ggplot(data=anscombe, aes(x=x1, y=y1)) +
+  geom_point() +
+  stat_smooth(method="lm", se=FALSE) +
+  theme_bw() +
+  expand_limits(x=0, y=0) +
+  scale_x_continuous(breaks = seq(0, 20, 2)) +
+  scale_y_continuous(breaks = seq(0, 10, 2)) +
+  ggtitle("Anscombe Dataset 1") +
+  xlab("Variable X1") +
+  ylab("Variable Y1")
 ```
 
 ##Building ggplots
 Personally, I like to make my ggplots objects like so . . . 
 ```{r}
-Anscombe1 <- ggplot(data=anscombe, aes(x=x1, y=y1)) + geom_point() + stat_smooth(method="lm",se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2)) + ggtitle("Anscombe Dataset 1") + xlab("Variable X1") + ylab("Variable Y1")
+Anscombe1 <- ggplot(data=anscombe, aes(x=x1, y=y1)) +
+  geom_point() +
+  stat_smooth(method="lm", se=FALSE) +
+  theme_bw() +
+  expand_limits(x=0, y=0) +
+  scale_x_continuous(breaks = seq(0, 20, 2)) +
+  scale_y_continuous(breaks = seq(0, 10, 2)) +
+  ggtitle("Anscombe Dataset 1") +
+  xlab("Variable X1") +
+  ylab("Variable Y1")
 ```
 
 Then I can call them back much more easily if I want to look at them again
@@ -179,11 +217,17 @@ Then I can call them back much more easily if I want to look at them again
 Anscombe1
 ```
 
-And now I can combine these into a grid. 
+And now I can combine these into a grid by taking the first plot `Anscombe1` and adding new column mappings e.g.  `aes(x=x2, y=y2)` and labelling e.g. `ggtitle("Anscombe Dataset 2")`. 
 ```{r}
-Anscombe2 <- ggplot(data=anscombe, aes(x=x2, y=y2)) + geom_point() + stat_smooth(method="lm", se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2)) + ggtitle("Anscombe Dataset 2") + xlab("Variable X2") + ylab("Variable Y2")
-Anscombe3 <- ggplot(data=anscombe, aes(x=x3, y=y3)) + geom_point() + stat_smooth(method="lm", se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2)) + ggtitle("Anscombe Dataset 3") + xlab("Variable X3") + ylab("Variable Y3")
-Anscombe4 <- ggplot(data=anscombe, aes(x=x4, y=y4)) + geom_point() + stat_smooth(method="lm", se=FALSE) + theme_bw() + expand_limits(x=0, y=0) + scale_x_continuous(breaks = seq(0, 20, 2)) + scale_y_continuous(breaks = seq(0, 10, 2)) + ggtitle("Anscombe Dataset 4") + xlab("Variable X4") + ylab("Variable Y4")
+Anscombe2 <- Anscombe1 +
+  aes(x=x2, y=y2) +
+  ggtitle("Anscombe Dataset 2") + xlab("Variable X2") + ylab("Variable Y2")
+Anscombe3 <- Anscombe1 +
+  aes(x=x3, y=y3) +
+  ggtitle("Anscombe Dataset 3") + xlab("Variable X3") + ylab("Variable Y3")
+Anscombe4 <- Anscombe1 +
+  aes(x=x4, y=y4) +
+  ggtitle("Anscombe Dataset 4") + xlab("Variable X4") + ylab("Variable Y4")
 
 #And now let's put them all together!
 
@@ -204,7 +248,7 @@ LongAnscombe <- anscombe %>%
   mutate(observation=seq_len(n()))%>%
   gather(key, value, -observation)%>% 
   separate(key, c("variable", "set") , 1 , convert=TRUE)%>%
-  mutate(set=c("1", "2", "3", "4")[set])%>%
+  mutate(set=factor(set))%>%
   spread(variable, value)
 LongAnscombe
 ```
@@ -214,7 +258,22 @@ Now I want to plot it!
 (I quite like [this colour cheatsheet](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf) for the `scale_colour_manual` function)
 
 ```{r}
-AnscombeQuartet <- ggplot (data=LongAnscombe, aes (x=x, y=y, color=set, shape=set)) + geom_point() + scale_colour_manual(name = "Quartet Set", labels = c("One", "Two", "Three", "Four"), values=c("steelblue4", "springgreen4", "slateblue4", "violetred4")) + scale_shape_manual(name = "Quartet Set", labels=c("One", "Two", "Three", "Four"), values=c(16, 17, 18, 15)) + stat_smooth(method = "lm", se = FALSE) + theme_bw() + expand_limits (x=0, y=0) + ggtitle ("The Anscombe Quartet") + xlab ("The X Variable") + ylab ("The Y Variable") + facet_grid(. ~ set)
+AnscombeQuartet <- ggplot (data=LongAnscombe,
+                           aes (x=x, y=y, color=set, shape=set)) +
+  geom_point() +
+  scale_colour_manual(name = "Quartet Set",
+                      labels = c("One", "Two", "Three", "Four"),
+                      values=c("steelblue4", "springgreen4", "slateblue4", "violetred4")) +
+  scale_shape_manual(name = "Quartet Set",
+                     labels=c("One", "Two", "Three", "Four"),
+                     values=c(16, 17, 18, 15)) +
+  stat_smooth(method = "lm", se = FALSE, lwd = 0.5) +
+  theme_bw() +
+  expand_limits (x=0, y=0) +
+  ggtitle ("The Anscombe Quartet") +
+  xlab ("The X Variable") +
+  ylab ("The Y Variable") +
+  facet_grid(. ~ set)
 AnscombeQuartet
 ```
 
@@ -240,3 +299,7 @@ stat.desc(datasaurus_dozen_wide, basic=FALSE, norm=FALSE)
 ```
 
 Got the message yet? ;)
+
+```{r, echo = FALSE}
+options(opts)
+```

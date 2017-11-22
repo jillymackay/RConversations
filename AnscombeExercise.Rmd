@@ -124,7 +124,7 @@ Now you're probably thinking "Great! Let's write up the paper and go home!"
 #Visualising Data
 Everything we've seen so far has shown us that we have identical relationships between *x* and *y* in the Anscombe dataset. So here's what we should have done first . . . 
 
-We're going to use `ggplot` for this. (We're also going to lean very heavily on [Ian and Stella's great ggplot tutorial](https://ianhandel.github.io/plotting-with-r/index.html) which I recommend if you want to learn more about `ggplot`). We'll walk through building the first chart and then build the others in one go. 
+We're going to use `ggplot` for this. (We're also going to lean very heavily on [Stella and Ian's great ggplot tutorial](https://ianhandel.github.io/plotting-with-r/index.html) which I recommend if you want to learn more about `ggplot`). We'll walk through building the first chart and then build the others in one go. 
 
 ##Understanding ggplot layers
 

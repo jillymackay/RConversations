@@ -1,14 +1,29 @@
 # RConversations
-There are many ways to teach R - and yet we still seem to struggle to get students to adopt it enthusiastically. I'm no brilliant coder, but I am a half-decent teacher. I want to create a set of teaching resources that can be used and improved upon by others. If nothing else, I'll get better at R myself!
+There are many ways to teach R - and yet we still seem to struggle to get students to adopt it enthusiastically. I'm using this repository to build and expand on my own R teaching materials. I would welcome anyone to adopt these materials and build on them. 
 
 
 
-##List of Resources
+## Resources
+## List of Resources
 
 
-**[The Anscombe Exercise](https://cdn.rawgit.com/jillymackay/RConversations/98c2f80a/AnscombeExercise.html)**
+**[The Anscombe Exercise](https://rawgit.com/jillymackay/RConversations/master/AnscombeExercise.html)**
 
 * **Exercise Type:** Confidence Builder
-
 * **Exercise Suitability:** Beginner
 
+**[The Theory of ANOVAs](https://rawgit.com/jillymackay/RConversations/master/GLM-AOVs.html)**
+
+* **Exercise Type:** Theory
+* **Exercise Suitability:** Beginner
+
+
+
+
+## Resources Under Construction
+These resources are not quite ready yet, so any thoughts on them would be appreciated!
+
+**[Getting Independent in R]()**
+
+* **Exercise Type:** Guidance
+* **Exercise Suitability:** Intermediate

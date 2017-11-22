@@ -241,7 +241,7 @@ Lesson learned, eh?!
 If you spend enough time on it, you can create truly beautiful visualisations in `ggplot2`. Play about with this code and see what you can do with it - share your best attempts! 
 
 
-I want to create a chart with all the sets overlaid, so I need all the x values in one column, all the y columns in another, and a new factor to tell me which set it belonged to. To change the shape of the data I'm going to use the `tidyr` and `dplyr` packages to do this. 
+I want to create a chart with all the sets overlaid, so I need all the x values in one column, all the y columns in another, and a new factor to tell me which set it belonged to. To change the shape of the data I'm going to use the `tidyr` and `dplyr` packages. (If you're curious, I recommend googling these packages to find some tutorials on how to use them, they're brilliant for data handling) 
 
 ```{r}
 LongAnscombe <- anscombe %>%

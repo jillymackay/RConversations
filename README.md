@@ -6,7 +6,7 @@ There are many ways to teach R - and yet we still seem to struggle to get studen
 ##List of Resources
 
 
-**[The Anscombe Exercise](https://cdn.rawgit.com/jillymackay/RConversations/98c2f80a/AnscombeExercise.html)**
+**[The Anscombe Exercise](https://rawgit.com/jillymackay/RConversations/master/AnscombeExercise.html)**
 
 * **Exercise Type:** Confidence Builder
 

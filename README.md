@@ -3,12 +3,16 @@ There are many ways to teach R - and yet we still seem to struggle to get studen
 
 
 
-##List of Resources
+## List of Resources
 
 
 **[The Anscombe Exercise](https://rawgit.com/jillymackay/RConversations/master/AnscombeExercise.html)**
 
 * **Exercise Type:** Confidence Builder
+* **Exercise Suitability:** Beginner
 
+**[The Theory of ANOVAs](https://rawgit.com/jillymackay/RConversations/master/GLM-AOVs.html)**
+
+* **Exercise Type:** Theory
 * **Exercise Suitability:** Beginner
 

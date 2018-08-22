@@ -41,7 +41,11 @@ library(tidyverse)
 ```
 
 ```
+<<<<<<< HEAD
 ## -- Attaching packages ------------------------------------------------------------------------------------ tidyverse 1.2.1 --
+=======
+## -- Attaching packages ---------------- tidyverse 1.2.1 --
+>>>>>>> 31f9bade88fdf6050bce3e24203036e13dce6049
 ```
 
 ```
@@ -52,7 +56,11 @@ library(tidyverse)
 ```
 
 ```
+<<<<<<< HEAD
 ## -- Conflicts --------------------------------------------------------------------------------------- tidyverse_conflicts() --
+=======
+## -- Conflicts ------------------- tidyverse_conflicts() --
+>>>>>>> 31f9bade88fdf6050bce3e24203036e13dce6049
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```

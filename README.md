@@ -3,7 +3,10 @@ There are many ways to teach R - and yet we still seem to struggle to get studen
 
 
 
+<<<<<<< HEAD
 ## Resources
+=======
+>>>>>>> 31f9bade88fdf6050bce3e24203036e13dce6049
 ## List of Resources
 
 

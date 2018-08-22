@@ -3,10 +3,9 @@ There are many ways to teach R - and yet we still seem to struggle to get studen
 
 
 
-<<<<<<< HEAD
 ## Resources
 =======
->>>>>>> 31f9bade88fdf6050bce3e24203036e13dce6049
+
 ## List of Resources
 
 
@@ -20,7 +19,7 @@ There are many ways to teach R - and yet we still seem to struggle to get studen
 * **Exercise Type:** Theory
 * **Exercise Suitability:** Beginner
 
-**[Wide and Tall Data]()**
+**[Wide and Tall Data](https://rawgit.com/jillymackay/RConversations/master/WideandTall.html)**
 
 * **Exercise Type:** Guidance
 * **Exercise Suitability:** Intermediate
@@ -30,7 +29,7 @@ There are many ways to teach R - and yet we still seem to struggle to get studen
 ## Resources Under Construction
 These resources are not quite ready yet, so any thoughts on them would be appreciated!
 
-**[Getting Independent in R]()**
+**[Getting Independent in R](https://rawgit.com/jillymackay/RConversations/master/IndependentR.html)**
 
 * **Exercise Type:** Guidance
 * **Exercise Suitability:** Intermediate

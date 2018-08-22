@@ -41,26 +41,18 @@ library(tidyverse)
 ```
 
 ```
-<<<<<<< HEAD
-## -- Attaching packages ------------------------------------------------------------------------------------ tidyverse 1.2.1 --
-=======
-## -- Attaching packages ---------------- tidyverse 1.2.1 --
->>>>>>> 31f9bade88fdf6050bce3e24203036e13dce6049
+## -- Attaching packages ------------------------------------------------------------------------------------- tidyverse 1.2.1 --
 ```
 
 ```
-## v ggplot2 2.2.1     v purrr   0.2.4
-## v tibble  1.3.4     v dplyr   0.7.4
-## v tidyr   0.7.2     v stringr 1.2.0
-## v readr   1.1.1     v forcats 0.2.0
+## v ggplot2 3.0.0     v purrr   0.2.5
+## v tibble  1.4.2     v dplyr   0.7.6
+## v tidyr   0.8.1     v stringr 1.3.1
+## v readr   1.1.1     v forcats 0.3.0
 ```
 
 ```
-<<<<<<< HEAD
-## -- Conflicts --------------------------------------------------------------------------------------- tidyverse_conflicts() --
-=======
-## -- Conflicts ------------------- tidyverse_conflicts() --
->>>>>>> 31f9bade88fdf6050bce3e24203036e13dce6049
+## -- Conflicts ---------------------------------------------------------------------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -348,9 +340,9 @@ RadioTidy %>%
 
 ```
 ## # A tibble: 1 x 2
-##     Radio  mean
-##     <chr> <dbl>
-## 1 NoRadio 111.1
+##   Radio    mean
+##   <chr>   <dbl>
+## 1 NoRadio  111.
 ```
 
 ```r
@@ -390,16 +382,16 @@ Radio %>%
 ## # A tibble: 10 x 4
 ##    NoRadio RadioMusic RadioDiscussion NoRadioDeviation
 ##      <dbl>      <dbl>           <dbl>            <dbl>
-##  1     150        112              75            -38.9
-##  2     130        127              98            -18.9
-##  3     121        132              88             -9.9
-##  4      90        150              83             21.1
-##  5      98        112              83             13.1
-##  6     100        128              77             11.1
-##  7      98        110              75             13.1
-##  8     100        120              84             11.1
-##  9     113         98              93             -1.9
-## 10     111        107              99              0.1
+##  1     150        112              75         -38.9   
+##  2     130        127              98         -18.9   
+##  3     121        132              88          -9.9   
+##  4      90        150              83          21.1   
+##  5      98        112              83          13.1   
+##  6     100        128              77          11.1   
+##  7      98        110              75          13.1   
+##  8     100        120              84          11.1   
+##  9     113         98              93          -1.9   
+## 10     111        107              99           0.1000
 ```
 
 ```r
@@ -475,7 +467,7 @@ Radio %>%
 ## # A tibble: 1 x 1
 ##   `Sum of Deviations from No Radio Mean`
 ##                                    <dbl>
-## 1                          -5.684342e-14
+## 1                    -0.0000000000000568
 ```
 
 No matter what your dataset looks like, no matter what numbers are in there, this will always be true. 
@@ -496,19 +488,18 @@ Radio %>%
 
 ```
 ## # A tibble: 10 x 5
-##    NoRadio RadioMusic RadioDiscussion NoRadioDeviation
-##      <dbl>      <dbl>           <dbl>            <dbl>
-##  1     150        112              75            -38.9
-##  2     130        127              98            -18.9
-##  3     121        132              88             -9.9
-##  4      90        150              83             21.1
-##  5      98        112              83             13.1
-##  6     100        128              77             11.1
-##  7      98        110              75             13.1
-##  8     100        120              84             11.1
-##  9     113         98              93             -1.9
-## 10     111        107              99              0.1
-## # ... with 1 more variables: SquaredNoRadioDeviation <dbl>
+##    NoRadio RadioMusic RadioDiscussion NoRadioDeviation SquaredNoRadioDevi~
+##      <dbl>      <dbl>           <dbl>            <dbl>               <dbl>
+##  1     150        112              75         -38.9             1513.     
+##  2     130        127              98         -18.9              357.     
+##  3     121        132              88          -9.9               98.0    
+##  4      90        150              83          21.1              445.     
+##  5      98        112              83          13.1              172.     
+##  6     100        128              77          11.1              123.     
+##  7      98        110              75          13.1              172.     
+##  8     100        120              84          11.1              123.     
+##  9     113         98              93          -1.9                3.61   
+## 10     111        107              99           0.1000             0.01000
 ```
 
 Sums of Squares are useful because they don't sum to 0, but they're still influenced by the number of data points we have (e.g. if we had one more unicorn in the No Radio farm the sum of squares would have to increase). 
@@ -533,7 +524,7 @@ Radio %>%
 ## # A tibble: 1 x 1
 ##   `Variance No Radio`
 ##                 <dbl>
-## 1               334.1
+## 1                334.
 ```
 
 
@@ -550,7 +541,7 @@ Radio %>%
 ## # A tibble: 1 x 1
 ##   SumSquaresNoRadio
 ##               <dbl>
-## 1            3006.9
+## 1             3007.
 ```
 
 And then divide that by `n-1`:
@@ -621,10 +612,10 @@ Sce1 %>%
 
 ```
 ## # A tibble: 3 x 2
-##    Condition  mean
-##        <chr> <dbl>
-## 1 Condition1 100.1
-## 2 Condition2 121.0
+##   Condition   mean
+##   <chr>      <dbl>
+## 1 Condition1 100. 
+## 2 Condition2 121  
 ## 3 Condition3  84.2
 ```
 
@@ -658,9 +649,9 @@ Sce2 %>%
 
 ```
 ## # A tibble: 3 x 2
-##    Condition  mean
-##        <chr> <dbl>
-## 1 Condition1 102.1
+##   Condition   mean
+##   <chr>      <dbl>
+## 1 Condition1 102. 
 ## 2 Condition2  98.3
 ## 3 Condition3  97.2
 ```
@@ -807,7 +798,7 @@ MFY %>%
 ## # A tibble: 1 x 3
 ##   SumSquareMY SumSquareMF SumSquareFY
 ##         <dbl>       <dbl>       <dbl>
-## 1     12053.2      6301.4      5751.8
+## 1      12053.       6301.       5752.
 ```
 
 But we also have one more bit of information we need to consider - what we call **degrees of freedom**. Let's say we want to put those sum squares into a nice table. We could also add in a row talking about the degrees of freedom. 

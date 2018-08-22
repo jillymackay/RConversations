@@ -17,6 +17,10 @@ There are many ways to teach R - and yet we still seem to struggle to get studen
 * **Exercise Type:** Theory
 * **Exercise Suitability:** Beginner
 
+**[Wide and Tall Data]()**
+
+* **Exercise Type:** Guidance
+* **Exercise Suitability:** Intermediate
 
 
 

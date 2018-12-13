@@ -1,0 +1,45 @@
+# Introduction {#intro}
+
+## R Conversations
+A few years ago, I began playing with the idea of teaching R. Mainly because it seemed like not teaching it was short-changing my students. As with all things, the more I wrote, the more confident I became. 
+
+More than anything else I'm a writer. I only ever understand something once I've put it down on a page. So this book is a combination of wanting to understand R, to understand R teaching, to understand Bookdown, and to maybe help someone else along the way. My philosophy is always to use what works.
+
+
+### The Philosophy {#philosophy}
+**Do not read this book cover to cover**
+
+It will not help. 
+
+Instead, treat this book like a reference manual. Search it. Annotate it. Create a pull request to edit it or request a new section. Jump from one end of the book to the next and despair at 
+
+
+
+
+
+
+
+
+
+
+
+
+You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+
+Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+
+```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
+par(mar = c(4, 4, .1, .1))
+plot(pressure, type = 'b', pch = 19)
+```
+
+Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(iris, 20), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
+```
+
+You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].

@@ -1,0 +1,6 @@
+# Data in R {#data-in}
+
+In this section we'll look at how R handles data, the
+
+## Loading Data into the Environment
+When you load data into R, you create an entity in the environment with a specific name. 

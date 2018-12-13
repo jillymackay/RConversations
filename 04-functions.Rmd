@@ -1,0 +1,19 @@
+# Functions {#functions}
+I came very late to functions, and I wish I had learned them earlier. 
+
+
+
+
+## The Basic Function
+
+A function is a handy way to bundle together some lines of code. DRob says that if you run a few lines more than twice you should write a function for it which is quite a good idea . . . 
+
+Let's create a function to make R welcome us. 
+
+```{r}
+mynameis <- function (name) {
+  print (paste0("Hello, ", name, ", how are you today?"))
+}
+
+mynameis ("Jill")
+```

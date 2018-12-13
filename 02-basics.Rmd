@@ -1,0 +1,28 @@
+# The Absolute Basics {#basics}
+(For Those of You with Imposter Syndrome)
+
+If you have never touched R before in your life here is where you start. 
+
+
+
+## The Big Secret
+It took me about ten years of working in R to get over my fear of copying and pasting other peoples' code. 
+
+There are some great power users of R who are able to pull R code out of nowhere. The rest of us look it up, copy and paste, and modify. That is perfectly normal and acceptable behaviour. 
+
+
+
+## Installing R and R Studio
+Part of my big revelation that copying and pasting code was okay was getting to use R Studio, which is a great program to help you use R. 
+
+I strongly suggest you install R Studio alongside R. It's free! 
+
+### Accompany Video
+If you prefer to get your resources in video format, there's an explanation of installing R and R Studio [here](https://media.ed.ac.uk/media/R+ConversationsA+Installing+R+and+R+Studio/1_q0mdj8mk/104843251)
+
+
+### Installing R
+Step one is to head on over to the Comprehensive R Archive Network (or [cran](https://cran.r-project.org/))
+
+
+### Installing R Studio

@@ -1,0 +1,19 @@
+--- 
+title: "R Conversations"
+author: "Jill R D MacKay"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is an R teaching resource written by someone who doesn't know that much, intended for people who know even less. Please use however you want!"
+---
+
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

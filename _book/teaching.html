@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R Conversations</title>
+  <meta name="description" content="This is an R teaching resource written by someone who doesn’t know that much, intended for people who know even less. Please use however you want!">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R Conversations" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an R teaching resource written by someone who doesn’t know that much, intended for people who know even less. Please use however you want!" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R Conversations" />
+  
+  <meta name="twitter:description" content="This is an R teaching resource written by someone who doesn’t know that much, intended for people who know even less. Please use however you want!" />
+  
+
+<meta name="author" content="Jill R D MacKay">
+
+
+<meta name="date" content="2018-12-13">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="functions.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R Conversations</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r-conversations"><i class="fa fa-check"></i><b>1.1</b> R Conversations</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#philosophy"><i class="fa fa-check"></i><b>1.1.1</b> The Philosophy</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basics.html"><a href="basics.html"><i class="fa fa-check"></i><b>2</b> The Absolute Basics</a><ul>
+<li class="chapter" data-level="2.1" data-path="basics.html"><a href="basics.html#the-big-secret"><i class="fa fa-check"></i><b>2.1</b> The Big Secret</a></li>
+<li class="chapter" data-level="2.2" data-path="basics.html"><a href="basics.html#installing-r-and-r-studio"><i class="fa fa-check"></i><b>2.2</b> Installing R and R Studio</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="basics.html"><a href="basics.html#accompany-video"><i class="fa fa-check"></i><b>2.2.1</b> Accompany Video</a></li>
+<li class="chapter" data-level="2.2.2" data-path="basics.html"><a href="basics.html#installing-r"><i class="fa fa-check"></i><b>2.2.2</b> Installing R</a></li>
+<li class="chapter" data-level="2.2.3" data-path="basics.html"><a href="basics.html#installing-r-studio"><i class="fa fa-check"></i><b>2.2.3</b> Installing R Studio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-in.html"><a href="data-in.html"><i class="fa fa-check"></i><b>3</b> Data in R</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-in.html"><a href="data-in.html#loading-data-into-the-environment"><i class="fa fa-check"></i><b>3.1</b> Loading Data into the Environment</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="functions.html"><a href="functions.html"><i class="fa fa-check"></i><b>4</b> Functions</a><ul>
+<li class="chapter" data-level="4.1" data-path="functions.html"><a href="functions.html#the-basic-function"><i class="fa fa-check"></i><b>4.1</b> The Basic Function</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="teaching.html"><a href="teaching.html"><i class="fa fa-check"></i><b>5</b> Teaching Examples</a><ul>
+<li class="chapter" data-level="5.1" data-path="teaching.html"><a href="teaching.html#anscombe"><i class="fa fa-check"></i><b>5.1</b> The Anscombe Exercise</a></li>
+<li class="chapter" data-level="5.2" data-path="teaching.html"><a href="teaching.html#the-anscombe-exercise"><i class="fa fa-check"></i><b>5.2</b> The Anscombe Exercise</a></li>
+<li class="chapter" data-level="5.3" data-path="teaching.html"><a href="teaching.html#learning-outcomes"><i class="fa fa-check"></i><b>5.3</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="5.4" data-path="teaching.html"><a href="teaching.html#the-r-environment"><i class="fa fa-check"></i><b>5.4</b> The R Environment</a></li>
+<li class="chapter" data-level="5.5" data-path="teaching.html"><a href="teaching.html#the-anscombe-dataset"><i class="fa fa-check"></i><b>5.5</b> The Anscombe Dataset</a></li>
+<li class="chapter" data-level="5.6" data-path="teaching.html"><a href="teaching.html#running-descriptive-statistics"><i class="fa fa-check"></i><b>5.6</b> Running Descriptive Statistics</a></li>
+<li class="chapter" data-level="5.7" data-path="teaching.html"><a href="teaching.html#run-a-regression"><i class="fa fa-check"></i><b>5.7</b> Run a Regression</a></li>
+<li class="chapter" data-level="5.8" data-path="teaching.html"><a href="teaching.html#visualising-data"><i class="fa fa-check"></i><b>5.8</b> Visualising Data</a><ul>
+<li class="chapter" data-level="5.8.1" data-path="teaching.html"><a href="teaching.html#understanding-ggplot-layers"><i class="fa fa-check"></i><b>5.8.1</b> Understanding ggplot layers</a></li>
+<li class="chapter" data-level="5.8.2" data-path="teaching.html"><a href="teaching.html#building-ggplots"><i class="fa fa-check"></i><b>5.8.2</b> Building ggplots</a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="teaching.html"><a href="teaching.html#where-do-we-go-from-here"><i class="fa fa-check"></i><b>5.9</b> Where Do We Go From Here?</a></li>
+<li class="chapter" data-level="5.10" data-path="teaching.html"><a href="teaching.html#anovas"><i class="fa fa-check"></i><b>5.10</b> Intro to ANOVAs</a></li>
+<li class="chapter" data-level="5.11" data-path="teaching.html"><a href="teaching.html#about-this-resource"><i class="fa fa-check"></i><b>5.11</b> About This Resource</a></li>
+<li class="chapter" data-level="5.12" data-path="teaching.html"><a href="teaching.html#learning-outcomes-1"><i class="fa fa-check"></i><b>5.12</b> Learning Outcomes</a></li>
+<li class="chapter" data-level="5.13" data-path="teaching.html"><a href="teaching.html#the-r-environment-1"><i class="fa fa-check"></i><b>5.13</b> The R Environment</a></li>
+<li class="chapter" data-level="5.14" data-path="teaching.html"><a href="teaching.html#analysis-of-variance"><i class="fa fa-check"></i><b>5.14</b> Analysis of Variance</a><ul>
+<li class="chapter" data-level="5.14.1" data-path="teaching.html"><a href="teaching.html#fake-experiment"><i class="fa fa-check"></i><b>5.14.1</b> Fake Experiment</a></li>
+<li class="chapter" data-level="5.14.2" data-path="teaching.html"><a href="teaching.html#tidy-data-is-important"><i class="fa fa-check"></i><b>5.14.2</b> Tidy Data Is Important!</a></li>
+<li class="chapter" data-level="5.14.3" data-path="teaching.html"><a href="teaching.html#lets-visualise-the-data"><i class="fa fa-check"></i><b>5.14.3</b> Let’s Visualise The Data</a></li>
+<li class="chapter" data-level="5.14.4" data-path="teaching.html"><a href="teaching.html#partitioning-variation"><i class="fa fa-check"></i><b>5.14.4</b> Partitioning Variation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.15" data-path="teaching.html"><a href="teaching.html#calculating-variance"><i class="fa fa-check"></i><b>5.15</b> Calculating Variance</a><ul>
+<li class="chapter" data-level="5.15.1" data-path="teaching.html"><a href="teaching.html#deviation-from-the-group-mean"><i class="fa fa-check"></i><b>5.15.1</b> Deviation from the group mean</a></li>
+<li class="chapter" data-level="5.15.2" data-path="teaching.html"><a href="teaching.html#calculating-variance-from-deviations"><i class="fa fa-check"></i><b>5.15.2</b> Calculating variance from deviations</a></li>
+</ul></li>
+<li class="chapter" data-level="5.16" data-path="teaching.html"><a href="teaching.html#partitioning-variation-1"><i class="fa fa-check"></i><b>5.16</b> Partitioning Variation</a><ul>
+<li class="chapter" data-level="5.16.1" data-path="teaching.html"><a href="teaching.html#imaginary-scenario-1"><i class="fa fa-check"></i><b>5.16.1</b> Imaginary Scenario 1</a></li>
+</ul></li>
+<li class="chapter" data-level="5.17" data-path="teaching.html"><a href="teaching.html#our-scenario"><i class="fa fa-check"></i><b>5.17</b> Our Scenario</a><ul>
+<li class="chapter" data-level="5.17.1" data-path="teaching.html"><a href="teaching.html#a-word-on-significance"><i class="fa fa-check"></i><b>5.17.1</b> A word on significance</a></li>
+<li class="chapter" data-level="5.17.2" data-path="teaching.html"><a href="teaching.html#going-back-to-sums-of-squares"><i class="fa fa-check"></i><b>5.17.2</b> Going Back to Sums of Squares</a></li>
+</ul></li>
+<li class="chapter" data-level="5.18" data-path="teaching.html"><a href="teaching.html#the-importance-of-mean-squares"><i class="fa fa-check"></i><b>5.18</b> The Importance of Mean Squares</a></li>
+<li class="chapter" data-level="5.19" data-path="teaching.html"><a href="teaching.html#f-ratios-and-f-distributions"><i class="fa fa-check"></i><b>5.19</b> F Ratios and F Distributions</a></li>
+<li class="chapter" data-level="5.20" data-path="teaching.html"><a href="teaching.html#in-conclusion-.-.-."><i class="fa fa-check"></i><b>5.20</b> In Conclusion . . .</a></li>
+<li class="chapter" data-level="5.21" data-path="teaching.html"><a href="teaching.html#widetalldata"><i class="fa fa-check"></i><b>5.21</b> Wide and Tall data</a><ul>
+<li class="chapter" data-level="5.21.1" data-path="teaching.html"><a href="teaching.html#about-this-exercise"><i class="fa fa-check"></i><b>5.21.1</b> About This Exercise</a></li>
+<li class="chapter" data-level="5.21.2" data-path="teaching.html"><a href="teaching.html#learning-outcomes-2"><i class="fa fa-check"></i><b>5.21.2</b> Learning Outcomes</a></li>
+</ul></li>
+<li class="chapter" data-level="5.22" data-path="teaching.html"><a href="teaching.html#the-r-environment-2"><i class="fa fa-check"></i><b>5.22</b> The R Environment</a></li>
+<li class="chapter" data-level="5.23" data-path="teaching.html"><a href="teaching.html#the-observation"><i class="fa fa-check"></i><b>5.23</b> The Observation</a><ul>
+<li class="chapter" data-level="5.23.1" data-path="teaching.html"><a href="teaching.html#the-data"><i class="fa fa-check"></i><b>5.23.1</b> The Data</a></li>
+</ul></li>
+<li class="chapter" data-level="5.24" data-path="teaching.html"><a href="teaching.html#gather"><i class="fa fa-check"></i><b>5.24</b> Gather</a><ul>
+<li class="chapter" data-level="5.24.1" data-path="teaching.html"><a href="teaching.html#nb---think-about-your-variable-names"><i class="fa fa-check"></i><b>5.24.1</b> NB - Think About Your Variable Names</a></li>
+</ul></li>
+<li class="chapter" data-level="5.25" data-path="teaching.html"><a href="teaching.html#spread"><i class="fa fa-check"></i><b>5.25</b> Spread</a></li>
+<li class="chapter" data-level="5.26" data-path="teaching.html"><a href="teaching.html#final-thoughts"><i class="fa fa-check"></i><b>5.26</b> Final Thoughts</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Conversations</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="teaching" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Teaching Examples</h1>
+<p>This chapter is going to have a bunch of teaching examples in it.</p>
+<div id="anscombe" class="section level2">
+<h2><span class="header-section-number">5.1</span> The Anscombe Exercise</h2>
+<p>##About This Exercise
+<strong>Exercise Type:</strong> Confidence Builder</p>
+<p><em>Confidence Builders are designed to get you more comfortable with R. We’ll go through bits of code more or less step-by-step, and describe the reasoning behind certain actions. Remember - it’s not cheating to copy code from this document and paste it into your R Studio console!</em></p>
+<p><strong>Exercise Suitability:</strong> Beginner</p>
+<p><em>If you have R Studio installed on your machine and you know what an object is, you can work through this material.</em></p>
+</div>
+<div id="the-anscombe-exercise" class="section level2">
+<h2><span class="header-section-number">5.2</span> The Anscombe Exercise</h2>
+<p>This exercise will take you through a really fun little dataset called the <em>Anscombe Quartet</em>. I’ve been trying to teach this exercise using data I’ve made up myself, and it’s never quite worked. Imagine my delight when I heard that Francis Anscombe had already created the perfect dataset for me! At least, according to Wikipedia, no one knows exactly how he came up with it.</p>
+<p>The <strong>aim</strong> of this exercise is to make you more comfortable with entering code in R.</p>
+</div>
+<div id="learning-outcomes" class="section level2">
+<h2><span class="header-section-number">5.3</span> Learning Outcomes</h2>
+<p>By the end of this workshop you should be able to . . .</p>
+<ul>
+<li>Provide descriptive statistics for data</li>
+<li>Run a simple regression on data</li>
+<li>Change arguments in a function</li>
+<li>Create visualisations in R</li>
+</ul>
+</div>
+<div id="the-r-environment" class="section level2">
+<h2><span class="header-section-number">5.4</span> The R Environment</h2>
+<p>Here are the packages you’ll need for this exercise. (Remember, if you don’t have one of these packages you can install it with the command: <code>install.packages(&quot;packagename&quot;)</code></p>
+<pre class="sourceCode r" id="cb5"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">library</span>(gridExtra)</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">library</span>(pastecs)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw">library</span>(dplyr)</a></code></pre>
+</div>
+<div id="the-anscombe-dataset" class="section level2">
+<h2><span class="header-section-number">5.5</span> The Anscombe Dataset</h2>
+<p>The Anscombe dataset is really interesting and comes pre-loaded as part of the package <code>datasets</code>. This is a package which comes as standard in any R installation and so we can look at it immediately just by typing the name of the dataset into R Studio.</p>
+<p>R Studio will show us all rows of this dataset because it’s quite small (only 11 rows). If we had a larger dataset, it would cut off after about 10 rows.</p>
+<pre class="sourceCode r" id="cb6"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">anscombe </a></code></pre>
+<pre><code>##    x1 x2 x3 x4    y1   y2    y3    y4
+## 1  10 10 10  8  8.04 9.14  7.46  6.58
+## 2   8  8  8  8  6.95 8.14  6.77  5.76
+## 3  13 13 13  8  7.58 8.74 12.74  7.71
+## 4   9  9  9  8  8.81 8.77  7.11  8.84
+## 5  11 11 11  8  8.33 9.26  7.81  8.47
+## 6  14 14 14  8  9.96 8.10  8.84  7.04
+## 7   6  6  6  8  7.24 6.13  6.08  5.25
+## 8   4  4  4 19  4.26 3.10  5.39 12.50
+## 9  12 12 12  8 10.84 9.13  8.15  5.56
+## 10  7  7  7  8  4.82 7.26  6.42  7.91
+## 11  5  5  5  8  5.68 4.74  5.73  6.89</code></pre>
+</div>
+<div id="running-descriptive-statistics" class="section level2">
+<h2><span class="header-section-number">5.6</span> Running Descriptive Statistics</h2>
+<p>Let’s start by exploring the means and medians of all these variables. There is a very handy command <code>stat.desc</code> from the package<code>pastecs</code> which can do this for us.</p>
+<p>(Note - there are LOADS of packages which give you descriptive stats. Check out <a href="https://www.statmethods.net/stats/descriptives.html">this statmethods page</a> for more examples. I just personally like <code>pastecs</code>.)</p>
+<pre class="sourceCode r" id="cb8"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">stat.desc</span>(anscombe)</a></code></pre>
+<pre><code>##                  x1     x2     x3     x4     y1     y2     y3     y4
+## nbr.val      11.000 11.000 11.000 11.000 11.000 11.000 11.000 11.000
+## nbr.null      0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000
+## nbr.na        0.000  0.000  0.000  0.000  0.000  0.000  0.000  0.000
+## min           4.000  4.000  4.000  8.000  4.260  3.100  5.390  5.250
+## max          14.000 14.000 14.000 19.000 10.840  9.260 12.740 12.500
+## range        10.000 10.000 10.000 11.000  6.580  6.160  7.350  7.250
+## sum          99.000 99.000 99.000 99.000 82.510 82.510 82.500 82.510
+## median        9.000  9.000  9.000  8.000  7.580  8.140  7.110  7.040
+## mean          9.000  9.000  9.000  9.000  7.501  7.501  7.500  7.501
+## SE.mean       1.000  1.000  1.000  1.000  0.613  0.613  0.612  0.612
+## CI.mean.0.95  2.228  2.228  2.228  2.228  1.365  1.365  1.364  1.364
+## var          11.000 11.000 11.000 11.000  4.127  4.128  4.123  4.123
+## std.dev       3.317  3.317  3.317  3.317  2.032  2.032  2.030  2.031
+## coef.var      0.369  0.369  0.369  0.369  0.271  0.271  0.271  0.271</code></pre>
+<p>For each variable in the array, <code>stat.desc</code> gives us:</p>
+<ul>
+<li><code>nbr.val</code> Number of values within the variable</li>
+<li><code>nbr.null</code> Number of null values</li>
+<li><code>nbr.na</code> Number of missing values</li>
+<li><code>min</code> Minimum value</li>
+<li><code>max</code> Maximum value</li>
+<li><code>range</code> Maximum-minimum value</li>
+<li><code>sum</code> Sum of all non-missing values</li>
+<li><code>median</code> The median value</li>
+<li><code>mean</code> The mean value</li>
+<li><code>SE.mean</code> The standard error of the mean</li>
+<li><code>CI.mean.0.95</code> The 95% confidence intervals of this mean</li>
+<li><code>var</code> The variance of this variable</li>
+<li><code>std.dev</code> The standard deviation of the mean</li>
+<li><code>coef.var</code> The variation coefficient (standard deviation/mean)</li>
+</ul>
+<p>With these descriptive statistics, we might want to start writing our interpretation of the data. For example …</p>
+<blockquote>
+<p>The average score of <em>x</em> was 9 ±3.3 standard deviations.
+### Changing Arguments in a Function</p>
+</blockquote>
+<p>You might decide you don’t want to bother with <em>all</em> the elements of <code>stat.desc</code> and so you could explore how to modify the command by asking R <code>help(&quot;stat.desc&quot;)</code> which will show you the help documentation for the function. Note that it talks about <em>arguments</em>.</p>
+<pre class="sourceCode r" id="cb10"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">stat.desc</span>(anscombe, <span class="dt">basic=</span><span class="ot">FALSE</span>, <span class="dt">norm=</span><span class="ot">FALSE</span>, <span class="dt">p=</span><span class="fl">0.99</span>)</a></code></pre>
+<pre><code>##                  x1     x2     x3     x4    y1    y2    y3    y4
+## median        9.000  9.000  9.000  8.000 7.580 8.140 7.110 7.040
+## mean          9.000  9.000  9.000  9.000 7.501 7.501 7.500 7.501
+## SE.mean       1.000  1.000  1.000  1.000 0.613 0.613 0.612 0.612
+## CI.mean.0.99  3.169  3.169  3.169  3.169 1.941 1.941 1.940 1.940
+## var          11.000 11.000 11.000 11.000 4.127 4.128 4.123 4.123
+## std.dev       3.317  3.317  3.317  3.317 2.032 2.032 2.030 2.031
+## coef.var      0.369  0.369  0.369  0.369 0.271 0.271 0.271 0.271</code></pre>
+<p>By setting the arguments <code>basic=FALSE</code> and <code>norm=FALSE</code>, we’ve told R we only care about the information that the <code>desc</code> argument gives us. Note, because we only want the <code>desc</code> argument we don’t need to bother typing it in. It’s set to <code>true</code> by default. You’d get the same result by typing <code>stat.desc(anscombe, basic=FALSE, desc=TRUE, norm=FALSE, p=0.99)</code> which you can try yourself. We’ve also changed the confidence interval width to 0.99 (i.e. 99 %).</p>
+<p>In this example, there’s no real harm in getting all the information <code>stat.desc</code> can give us, but when we start plotting the data we will want to play about with the arguments in the <code>ggplot</code> command, so that’s why you’re seeing them here!</p>
+</div>
+<div id="run-a-regression" class="section level2">
+<h2><span class="header-section-number">5.7</span> Run a Regression</h2>
+<p>We’re going to run four regressions for this dataset (all four <em>x</em>s against all 4 <em>y</em>s) and explore them. This will be done using R’s inbuilt stats package, so there’s no need to load any specific package into our library.</p>
+<pre class="sourceCode r" id="cb12"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">regression1 &lt;-<span class="st"> </span><span class="kw">lm</span> (y1<span class="op">~</span>x1, <span class="dt">data=</span>anscombe)</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">regression2 &lt;-<span class="st"> </span><span class="kw">lm</span> (y2<span class="op">~</span>x2, <span class="dt">data=</span>anscombe)</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">regression3 &lt;-<span class="st"> </span><span class="kw">lm</span> (y3<span class="op">~</span>x3, <span class="dt">data=</span>anscombe)</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">regression4 &lt;-<span class="st"> </span><span class="kw">lm</span> (y4<span class="op">~</span>x4, <span class="dt">data=</span>anscombe)</a>
+<a class="sourceLine" id="cb12-5" data-line-number="5"><span class="kw">summary</span> (regression1)</a></code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y1 ~ x1, data = anscombe)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1.9213 -0.4558 -0.0414  0.7094  1.8388 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)    3.000      1.125    2.67   0.0257 * 
+## x1             0.500      0.118    4.24   0.0022 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.24 on 9 degrees of freedom
+## Multiple R-squared:  0.667,  Adjusted R-squared:  0.629 
+## F-statistic:   18 on 1 and 9 DF,  p-value: 0.00217</code></pre>
+<pre class="sourceCode r" id="cb14"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">summary</span> (regression2)</a></code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y2 ~ x2, data = anscombe)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -1.901 -0.761  0.129  0.949  1.269 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)    3.001      1.125    2.67   0.0258 * 
+## x2             0.500      0.118    4.24   0.0022 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.24 on 9 degrees of freedom
+## Multiple R-squared:  0.666,  Adjusted R-squared:  0.629 
+## F-statistic:   18 on 1 and 9 DF,  p-value: 0.00218</code></pre>
+<pre class="sourceCode r" id="cb16"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw">summary</span> (regression3)</a></code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y3 ~ x3, data = anscombe)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -1.159 -0.615 -0.230  0.154  3.241 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)    3.002      1.124    2.67   0.0256 * 
+## x3             0.500      0.118    4.24   0.0022 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.24 on 9 degrees of freedom
+## Multiple R-squared:  0.666,  Adjusted R-squared:  0.629 
+## F-statistic:   18 on 1 and 9 DF,  p-value: 0.00218</code></pre>
+<pre class="sourceCode r" id="cb18"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">summary</span> (regression4)</a></code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y4 ~ x4, data = anscombe)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -1.751 -0.831  0.000  0.809  1.839 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)    3.002      1.124    2.67   0.0256 * 
+## x4             0.500      0.118    4.24   0.0022 **
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 1.24 on 9 degrees of freedom
+## Multiple R-squared:  0.667,  Adjusted R-squared:  0.63 
+## F-statistic:   18 on 1 and 9 DF,  p-value: 0.00216</code></pre>
+<p>Here we might want to report these findings.
+&gt; There was a significant, positive relationship between <em>x</em> and <em>y</em> (F<sup>1,9</sup>=18, p=0.002) in which <em>x</em> explained approximately 63% of the variation observed in <em>y</em>.</p>
+<p>Now you’re probably thinking “Great! Let’s write up the paper and go home!”</p>
+</div>
+<div id="visualising-data" class="section level2">
+<h2><span class="header-section-number">5.8</span> Visualising Data</h2>
+<p>Everything we’ve seen so far has shown us that we have identical relationships between <em>x</em> and <em>y</em> in the Anscombe dataset. So here’s what we should have done first . . .</p>
+<p>We’re going to use <code>ggplot</code> for this. (We’re also going to lean very heavily on <a href="https://ianhandel.github.io/plotting-with-r/index.html">Stella and Ian’s great ggplot tutorial</a> which I recommend if you want to learn more about <code>ggplot</code>). We’ll walk through building the first chart and then build the others in one go.</p>
+<div id="understanding-ggplot-layers" class="section level3">
+<h3><span class="header-section-number">5.8.1</span> Understanding ggplot layers</h3>
+<pre class="sourceCode r" id="cb20"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">ggplot</span> (<span class="dt">data=</span>anscombe, <span class="kw">aes</span>(<span class="dt">x=</span>x1, <span class="dt">y=</span>y1))</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>The <code>ggplot</code> command first needs to know what <em>data</em> to use, (the <code>data</code> argument) and then what <em>aesthetics</em> ( the <code>aes</code> argument). But you will have spotted pretty quickly that there’s no data in there yet! We need to start layering information into the <code>ggplot</code> command. The two most important types of layers are the geometric elements (<code>geoms</code>) and statistical transformations (<code>stats</code>).</p>
+<p>We’ll begin by adding a layer of points with the <code>geom_point</code> function.</p>
+<pre class="sourceCode r" id="cb21"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">ggplot</span> (<span class="dt">data=</span>anscombe, <span class="kw">aes</span>(<span class="dt">x=</span>x1, <span class="dt">y=</span>y1)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb21-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Now we’re getting somewhere! Let’s add a statistical layer.</p>
+<pre class="sourceCode r" id="cb22"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">ggplot</span> (<span class="dt">data=</span>anscombe, <span class="kw">aes</span>(<span class="dt">x=</span>x1, <span class="dt">y=</span>y1)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span> (<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>)</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p>This looks like a proper chart! Still, your research methods teacher will probably shout at you if you don’t have the x and y axis start at zero . . .</p>
+<pre class="sourceCode r" id="cb23"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">ggplot</span> (<span class="dt">data=</span>anscombe, <span class="kw">aes</span>(<span class="dt">x=</span>x1, <span class="dt">y=</span>y1)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="st">  </span><span class="kw">expand_limits</span>(<span class="dt">x=</span><span class="dv">0</span>, <span class="dt">y=</span><span class="dv">0</span>)</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<p>And she’ll also shout at you for not having the x and y axis share sensible scales</p>
+<pre class="sourceCode r" id="cb24"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">ggplot</span> (<span class="dt">data=</span>anscombe, <span class="kw">aes</span>(<span class="dt">x=</span>x1, <span class="dt">y=</span>y1)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4"><span class="st">  </span><span class="kw">expand_limits</span>(<span class="dt">x=</span><span class="dv">0</span>, <span class="dt">y=</span><span class="dv">0</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">2</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb24-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>))</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>And why is the background grey? You know that’s a waste of ink if you print it out.</p>
+<pre class="sourceCode r" id="cb25"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>anscombe, <span class="kw">aes</span>(<span class="dt">x=</span>x1, <span class="dt">y=</span>y1)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-5" data-line-number="5"><span class="st">  </span><span class="kw">expand_limits</span>(<span class="dt">x=</span><span class="dv">0</span>, <span class="dt">y=</span><span class="dv">0</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">2</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb25-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>))</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Maybe you need a title, and better axis labels too?</p>
+<pre class="sourceCode r" id="cb26"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data=</span>anscombe, <span class="kw">aes</span>(<span class="dt">x=</span>x1, <span class="dt">y=</span>y1)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="st">  </span><span class="kw">expand_limits</span>(<span class="dt">x=</span><span class="dv">0</span>, <span class="dt">y=</span><span class="dv">0</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">2</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-8" data-line-number="8"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Anscombe Dataset 1&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-9" data-line-number="9"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Variable X1&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb26-10" data-line-number="10"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Variable Y1&quot;</span>)</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+</div>
+<div id="building-ggplots" class="section level3">
+<h3><span class="header-section-number">5.8.2</span> Building ggplots</h3>
+<p>Personally, I like to make my ggplots objects like so . . .</p>
+<pre class="sourceCode r" id="cb27"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">Anscombe1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="dt">data=</span>anscombe, <span class="kw">aes</span>(<span class="dt">x=</span>x1, <span class="dt">y=</span>y1)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-3" data-line-number="3"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-5" data-line-number="5"><span class="st">  </span><span class="kw">expand_limits</span>(<span class="dt">x=</span><span class="dv">0</span>, <span class="dt">y=</span><span class="dv">0</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">2</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-8" data-line-number="8"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Anscombe Dataset 1&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-9" data-line-number="9"><span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Variable X1&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb27-10" data-line-number="10"><span class="st">  </span><span class="kw">ylab</span>(<span class="st">&quot;Variable Y1&quot;</span>)</a></code></pre>
+<p>Then I can call them back much more easily if I want to look at them again</p>
+<pre class="sourceCode r" id="cb28"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">Anscombe1</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>And now I can combine these into a grid by taking the first plot <code>Anscombe1</code> and adding new column mappings e.g. <code>aes(x=x2, y=y2)</code> and labelling e.g. <code>ggtitle(&quot;Anscombe Dataset 2&quot;)</code>.</p>
+<pre class="sourceCode r" id="cb29"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">Anscombe2 &lt;-<span class="st"> </span>Anscombe1 <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-2" data-line-number="2"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x=</span>x2, <span class="dt">y=</span>y2) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-3" data-line-number="3"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Anscombe Dataset 2&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Variable X2&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Variable Y2&quot;</span>)</a>
+<a class="sourceLine" id="cb29-4" data-line-number="4">Anscombe3 &lt;-<span class="st"> </span>Anscombe1 <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-5" data-line-number="5"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x=</span>x3, <span class="dt">y=</span>y3) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-6" data-line-number="6"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Anscombe Dataset 3&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Variable X3&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Variable Y3&quot;</span>)</a>
+<a class="sourceLine" id="cb29-7" data-line-number="7">Anscombe4 &lt;-<span class="st"> </span>Anscombe1 <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-8" data-line-number="8"><span class="st">  </span><span class="kw">aes</span>(<span class="dt">x=</span>x4, <span class="dt">y=</span>y4) <span class="op">+</span></a>
+<a class="sourceLine" id="cb29-9" data-line-number="9"><span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Anscombe Dataset 4&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">xlab</span>(<span class="st">&quot;Variable X4&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylab</span>(<span class="st">&quot;Variable Y4&quot;</span>)</a>
+<a class="sourceLine" id="cb29-10" data-line-number="10"><span class="co">#And now let&#39;s put them all together!</span></a>
+<a class="sourceLine" id="cb29-11" data-line-number="11"><span class="kw">grid.arrange</span>(Anscombe1, Anscombe2, Anscombe3, Anscombe4, <span class="dt">top=</span><span class="st">&quot;This is why you always visualise data first!&quot;</span>)</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>Lesson learned, eh?!</p>
+</div>
+</div>
+<div id="where-do-we-go-from-here" class="section level2">
+<h2><span class="header-section-number">5.9</span> Where Do We Go From Here?</h2>
+<p>If you spend enough time on it, you can create truly beautiful visualisations in <code>ggplot2</code>. Play about with this code and see what you can do with it - share your best attempts!</p>
+<p>I want to create a chart with all the sets overlaid, so I need all the x values in one column, all the y columns in another, and a new factor to tell me which set it belonged to. To change the shape of the data I’m going to use the <code>tidyr</code> and <code>dplyr</code> packages. (If you’re curious, I recommend googling these packages to find some tutorials on how to use them, they’re brilliant for data handling)</p>
+<pre class="sourceCode r" id="cb30"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1">LongAnscombe &lt;-<span class="st"> </span>anscombe <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">observation=</span><span class="kw">seq_len</span>(<span class="kw">n</span>()))<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb30-3" data-line-number="3"><span class="st">  </span><span class="kw">gather</span>(key, value, <span class="op">-</span>observation)<span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4"><span class="st">  </span><span class="kw">separate</span>(key, <span class="kw">c</span>(<span class="st">&quot;variable&quot;</span>, <span class="st">&quot;set&quot;</span>) , <span class="dv">1</span> , <span class="dt">convert=</span><span class="ot">TRUE</span>)<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb30-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">set=</span><span class="kw">factor</span>(set))<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb30-6" data-line-number="6"><span class="st">  </span><span class="kw">spread</span>(variable, value)</a>
+<a class="sourceLine" id="cb30-7" data-line-number="7">LongAnscombe</a></code></pre>
+<pre><code>##    observation set  x     y
+## 1            1   1 10  8.04
+## 2            1   2 10  9.14
+## 3            1   3 10  7.46
+## 4            1   4  8  6.58
+## 5            2   1  8  6.95
+## 6            2   2  8  8.14
+## 7            2   3  8  6.77
+## 8            2   4  8  5.76
+## 9            3   1 13  7.58
+## 10           3   2 13  8.74
+## 11           3   3 13 12.74
+## 12           3   4  8  7.71
+## 13           4   1  9  8.81
+## 14           4   2  9  8.77
+## 15           4   3  9  7.11
+## 16           4   4  8  8.84
+## 17           5   1 11  8.33
+## 18           5   2 11  9.26
+## 19           5   3 11  7.81
+## 20           5   4  8  8.47
+## 21           6   1 14  9.96
+## 22           6   2 14  8.10
+## 23           6   3 14  8.84
+## 24           6   4  8  7.04
+## 25           7   1  6  7.24
+## 26           7   2  6  6.13
+## 27           7   3  6  6.08
+## 28           7   4  8  5.25
+## 29           8   1  4  4.26
+## 30           8   2  4  3.10
+## 31           8   3  4  5.39
+## 32           8   4 19 12.50
+## 33           9   1 12 10.84
+## 34           9   2 12  9.13
+## 35           9   3 12  8.15
+## 36           9   4  8  5.56
+## 37          10   1  7  4.82
+## 38          10   2  7  7.26
+## 39          10   3  7  6.42
+## 40          10   4  8  7.91
+## 41          11   1  5  5.68
+## 42          11   2  5  4.74
+## 43          11   3  5  5.73
+## 44          11   4  8  6.89</code></pre>
+<p>Now I want to plot it!</p>
+<p>(I quite like <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf">this colour cheatsheet</a> for the <code>scale_colour_manual</code> function)</p>
+<pre class="sourceCode r" id="cb32"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">AnscombeQuartet &lt;-<span class="st"> </span><span class="kw">ggplot</span> (<span class="dt">data=</span>LongAnscombe,</a>
+<a class="sourceLine" id="cb32-2" data-line-number="2">                           <span class="kw">aes</span> (<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">color=</span>set, <span class="dt">shape=</span>set)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_colour_manual</span>(<span class="dt">name =</span> <span class="st">&quot;Quartet Set&quot;</span>,</a>
+<a class="sourceLine" id="cb32-5" data-line-number="5">                      <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;One&quot;</span>, <span class="st">&quot;Two&quot;</span>, <span class="st">&quot;Three&quot;</span>, <span class="st">&quot;Four&quot;</span>),</a>
+<a class="sourceLine" id="cb32-6" data-line-number="6">                      <span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;steelblue4&quot;</span>, <span class="st">&quot;springgreen4&quot;</span>, <span class="st">&quot;slateblue4&quot;</span>, <span class="st">&quot;violetred4&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_shape_manual</span>(<span class="dt">name =</span> <span class="st">&quot;Quartet Set&quot;</span>,</a>
+<a class="sourceLine" id="cb32-8" data-line-number="8">                     <span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;One&quot;</span>, <span class="st">&quot;Two&quot;</span>, <span class="st">&quot;Three&quot;</span>, <span class="st">&quot;Four&quot;</span>),</a>
+<a class="sourceLine" id="cb32-9" data-line-number="9">                     <span class="dt">values=</span><span class="kw">c</span>(<span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">15</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-10" data-line-number="10"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">lwd =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-12" data-line-number="12"><span class="st">  </span><span class="kw">expand_limits</span> (<span class="dt">x=</span><span class="dv">0</span>, <span class="dt">y=</span><span class="dv">0</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-13" data-line-number="13"><span class="st">  </span><span class="kw">ggtitle</span> (<span class="st">&quot;The Anscombe Quartet&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-14" data-line-number="14"><span class="st">  </span><span class="kw">xlab</span> (<span class="st">&quot;The X Variable&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-15" data-line-number="15"><span class="st">  </span><span class="kw">ylab</span> (<span class="st">&quot;The Y Variable&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-16" data-line-number="16"><span class="st">  </span><span class="kw">facet_grid</span>(. <span class="op">~</span><span class="st"> </span>set)</a>
+<a class="sourceLine" id="cb32-17" data-line-number="17">AnscombeQuartet</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>Start messing about with this bit of <code>ggplot</code> code to produce your prettiest examples of the Anscombe Quartet. If you feel like you’ve spent enough time visualising them, here’s what I suggest you do next…</p>
+<p><code>install.packages(&quot;datasauRus&quot;)</code></p>
+<p>And then you can do this . . .</p>
+<pre class="sourceCode r" id="cb33"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" data-line-number="1"><span class="kw">ggplot</span>(datasaurus_dozen, <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">colour=</span>dataset))<span class="op">+</span></a>
+<a class="sourceLine" id="cb33-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb33-3" data-line-number="3"><span class="st">  </span><span class="kw">theme_void</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb33-4" data-line-number="4"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb33-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>dataset, <span class="dt">ncol=</span><span class="dv">3</span>)</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+<p>And check out these:</p>
+<pre class="sourceCode r" id="cb34"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">stat.desc</span>(datasaurus_dozen_wide, <span class="dt">basic=</span><span class="ot">FALSE</span>, <span class="dt">norm=</span><span class="ot">FALSE</span>)</a></code></pre>
+<pre><code>##               away_x  away_y bullseye_x bullseye_y circle_x circle_y
+## median        53.340  47.535     53.842     47.383   54.023   51.025
+## mean          54.266  47.835     54.269     47.831   54.267   47.838
+## SE.mean        1.407   2.261      1.407      2.260    1.406    2.260
+## CI.mean.0.95   2.782   4.469      2.782      4.469    2.780    4.468
+## var          281.227 725.750    281.207    725.533  280.898  725.227
+## std.dev       16.770  26.940     16.769     26.936   16.760   26.930
+## coef.var       0.309   0.563      0.309      0.563    0.309    0.563
+##               dino_x  dino_y  dots_x  dots_y h_lines_x h_lines_y
+## median        53.333  46.026  50.977  51.299    53.070    50.474
+## mean          54.263  47.832  54.260  47.840    54.261    47.830
+## SE.mean        1.407   2.260   1.407   2.260     1.407     2.261
+## CI.mean.0.95   2.781   4.469   2.782   4.468     2.781     4.469
+## var          281.070 725.516 281.157 725.235   281.095   725.757
+## std.dev       16.765  26.935  16.768  26.930    16.766    26.940
+## coef.var       0.309   0.563   0.309   0.563     0.309     0.563
+##              high_lines_x high_lines_y slant_down_x slant_down_y
+## median             54.169       32.499       53.135       46.401
+## mean               54.269       47.835       54.268       47.836
+## SE.mean             1.407        2.261        1.407        2.260
+## CI.mean.0.95        2.782        4.469        2.782        4.469
+## var               281.122      725.763      281.124      725.554
+## std.dev            16.767       26.940       16.767       26.936
+## coef.var            0.309        0.563        0.309        0.563
+##              slant_up_x slant_up_y  star_x  star_y v_lines_x v_lines_y
+## median           54.261     45.292  56.535  50.111    50.363    47.114
+## mean             54.266     47.831  54.267  47.840    54.270    47.837
+## SE.mean           1.407      2.261   1.407   2.260     1.407     2.261
+## CI.mean.0.95      2.782      4.469   2.782   4.468     2.782     4.469
+## var             281.194    725.689 281.198 725.240   281.232   725.639
+## std.dev          16.769     26.939  16.769  26.930    16.770    26.938
+## coef.var          0.309      0.563   0.309   0.563     0.309     0.563
+##              wide_lines_x wide_lines_y x_shape_x x_shape_y
+## median             64.550       46.279    47.136    39.876
+## mean               54.267       47.832    54.260    47.840
+## SE.mean             1.407        2.261     1.407     2.260
+## CI.mean.0.95        2.782        4.469     2.782     4.468
+## var               281.233      725.651   281.231   725.225
+## std.dev            16.770       26.938    16.770    26.930
+## coef.var            0.309        0.563     0.309     0.563</code></pre>
+<p>Got the message yet? ;)</p>
+</div>
+<div id="anovas" class="section level2">
+<h2><span class="header-section-number">5.10</span> Intro to ANOVAs</h2>
+</div>
+<div id="about-this-resource" class="section level2">
+<h2><span class="header-section-number">5.11</span> About This Resource</h2>
+<p><strong>Exercise Type:</strong> Theory
+<em>Theory exercises teach the underpinning concepts for statistics or R that you need to know</em></p>
+<p><strong>Exercise Suitability:</strong> Beginner</p>
+<p><em>If you have R Studio installed on your machine and you know what an object is, you can work through this material.</em></p>
+<p>This is an R translation of a lecture I do explaining the principles behind ANOVAs (or analyses of variances). The teaching material is very much taken from <a href="http://global.oup.com/uk/orc/biosciences/maths/grafen/">Grafen &amp; Hails’ Modern Statistics for the Life Sciences</a> which I love and still reference when I’m trying to think in detail about how statistics work.</p>
+<p>The point of providing this as a full page is to give the R code alongside the materials. <strong>You should feel free to copy and paste the R code directly into your console</strong>. I think this works best if you work alongside the material. Stop to look at your data regularly with <code>view(data)</code>, and read the notes within the code chunks about how and why the code has been used.</p>
+</div>
+<div id="learning-outcomes-1" class="section level2">
+<h2><span class="header-section-number">5.12</span> Learning Outcomes</h2>
+<p>By the end of this sheet you should be able to . . .</p>
+<ul>
+<li>Describe the principles of how an ANOVA works</li>
+<li>Run an ANOVA in R</li>
+<li>Interpret the results of an ANOVA</li>
+</ul>
+</div>
+<div id="the-r-environment-1" class="section level2">
+<h2><span class="header-section-number">5.13</span> The R Environment</h2>
+<p>Here are the packages you’ll need for this exercise. (Remember, if you don’t have one of these packages you can install it with the command: <code>install.packages(&quot;packagename&quot;)</code> )</p>
+<pre class="sourceCode r" id="cb36"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb36-2" data-line-number="2"><span class="kw">library</span>(RColorBrewer)</a>
+<a class="sourceLine" id="cb36-3" data-line-number="3"><span class="kw">library</span> (knitr)</a></code></pre>
+</div>
+<div id="analysis-of-variance" class="section level2">
+<h2><span class="header-section-number">5.14</span> Analysis of Variance</h2>
+<p>ANOVAs fall under the GLM formula. People sometimes speak about ANOVAs as if they’re a different test, but Grafen &amp; Hails argue they’re a good introduction to the linear model formula because you have to think about variance in frequentist statistics. I’m inclinded to agree.</p>
+<div id="fake-experiment" class="section level3">
+<h3><span class="header-section-number">5.14.1</span> Fake Experiment</h3>
+<p>We’re going to start with a fake experiment to explore this. As you may know, the national animal of Scotland is the unicorn. Scotland has started farming unicorns (n a very welfare friendly manner) to export more magic dust. Unicorns shed magic dust from their horns every morning, and this is gathered by the farmer.</p>
+<p>There’s a belief that unicorns shed more dust when they hear music, and so we set up a trial with three farms:</p>
+<ul>
+<li>Farm 1 was our negative control farm, with no intervention.</li>
+<li>Farm 2 was our trial farm, where a radio station tuned to music was played over the speakers.</li>
+<li>Farm 3 was a positive control farm, and played radio tuned to BBC Radio 4 for thoughtful discussion.</li>
+</ul>
+<p>We recorded the raw weekly dust yield of 10 unicorns on each farm, and the data looks like this:</p>
+<pre class="sourceCode r" id="cb37"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1">Radio &lt;-<span class="st"> </span><span class="kw">tibble</span> (<span class="dt">NoRadio =</span> <span class="kw">c</span>(<span class="dv">150</span>, <span class="dv">130</span>, <span class="dv">121</span>, <span class="dv">90</span>, <span class="dv">98</span>, <span class="dv">100</span>, <span class="dv">98</span>, <span class="dv">100</span>, <span class="dv">113</span>, <span class="dv">111</span>),</a>
+<a class="sourceLine" id="cb37-2" data-line-number="2">                 <span class="dt">RadioMusic =</span> <span class="kw">c</span>(<span class="dv">112</span>, <span class="dv">127</span>, <span class="dv">132</span>, <span class="dv">150</span>, <span class="dv">112</span>, <span class="dv">128</span>, <span class="dv">110</span>, <span class="dv">120</span>, <span class="dv">98</span>, <span class="dv">107</span>),</a>
+<a class="sourceLine" id="cb37-3" data-line-number="3">                 <span class="dt">RadioDiscussion =</span> <span class="kw">c</span>(<span class="dv">75</span>, <span class="dv">98</span>, <span class="dv">88</span>, <span class="dv">83</span>, <span class="dv">83</span>, <span class="dv">77</span>, <span class="dv">75</span>, <span class="dv">84</span>, <span class="dv">93</span>, <span class="dv">99</span>))</a>
+<a class="sourceLine" id="cb37-4" data-line-number="4"><span class="co"># Remember you can view this data in R Studio with `View(Radio)`</span></a></code></pre>
+<p>We could look at the data directly, but let’s ask R to make it look a little prettier:</p>
+<pre class="sourceCode r" id="cb38"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">kable</span> (Radio,</a>
+<a class="sourceLine" id="cb38-2" data-line-number="2">       <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;No Radio&quot;</span>, <span class="st">&quot;Radio Playing Music&quot;</span>, <span class="st">&quot;Radio Playing Discussion&quot;</span>), </a>
+<a class="sourceLine" id="cb38-3" data-line-number="3">       <span class="dt">caption =</span> <span class="st">&quot;Raw weekly dust yield (kg) from three unicorn farms&quot;</span>)</a></code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-27">Table 5.1: </span>Raw weekly dust yield (kg) from three unicorn farms</caption>
+<thead>
+<tr class="header">
+<th align="right">No Radio</th>
+<th align="right">Radio Playing Music</th>
+<th align="right">Radio Playing Discussion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">150</td>
+<td align="right">112</td>
+<td align="right">75</td>
+</tr>
+<tr class="even">
+<td align="right">130</td>
+<td align="right">127</td>
+<td align="right">98</td>
+</tr>
+<tr class="odd">
+<td align="right">121</td>
+<td align="right">132</td>
+<td align="right">88</td>
+</tr>
+<tr class="even">
+<td align="right">90</td>
+<td align="right">150</td>
+<td align="right">83</td>
+</tr>
+<tr class="odd">
+<td align="right">98</td>
+<td align="right">112</td>
+<td align="right">83</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">128</td>
+<td align="right">77</td>
+</tr>
+<tr class="odd">
+<td align="right">98</td>
+<td align="right">110</td>
+<td align="right">75</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">120</td>
+<td align="right">84</td>
+</tr>
+<tr class="odd">
+<td align="right">113</td>
+<td align="right">98</td>
+<td align="right">93</td>
+</tr>
+<tr class="even">
+<td align="right">111</td>
+<td align="right">107</td>
+<td align="right">99</td>
+</tr>
+</tbody>
+</table>
+<p>We always want to know <strong>Does x affect y?</strong>.</p>
+<p>In this case, we’re asking: <strong>Does radio as a background noise affect the magic dust yield of unicorns?</strong></p>
+</div>
+<div id="tidy-data-is-important" class="section level3">
+<h3><span class="header-section-number">5.14.2</span> Tidy Data Is Important!</h3>
+<p>I wanted to write the data in that way because it’s quite a logical way to think about it - <em>for a human</em>. R prefers data to be <a href="">tidy</a>.</p>
+<p>Luckily we can tidy this data extremely easy.</p>
+<pre class="sourceCode r" id="cb39"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">RadioTidy &lt;-<span class="st"> </span>Radio <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span>(<span class="dt">key =</span> <span class="st">&quot;Radio&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;DustYield&quot;</span>)</a>
+<a class="sourceLine" id="cb39-3" data-line-number="3"><span class="co"># Remember to `View(RadioMelt)` to see what this code has done!</span></a></code></pre>
+</div>
+<div id="lets-visualise-the-data" class="section level3">
+<h3><span class="header-section-number">5.14.3</span> Let’s Visualise The Data</h3>
+<p>Visualising data is always a good stop - but note that in this exercise I’m going to ask you to visualise the data more often than you would in practice. This is because I want to demonstrate different aspects of variance.</p>
+<p>Learning how to do these visualisations is just an extra benefit you get ;)</p>
+<pre class="sourceCode r" id="cb40"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1"><span class="kw">ggplot</span> (RadioTidy, <span class="kw">aes</span> (<span class="dt">x =</span> Radio, <span class="dt">y =</span> DustYield)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb40-2" data-line-number="2"><span class="st">     </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> Radio, <span class="dt">colour =</span> Radio)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-3" data-line-number="3"><span class="st">     </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="st">&quot;Magic Dust Yield(kg) by Unicorn Farm&quot;</span>, </a>
+<a class="sourceLine" id="cb40-4" data-line-number="4">           <span class="dt">y =</span> <span class="st">&quot;Dust Yield (Kg)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Radio Condition&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-5" data-line-number="5"><span class="st">     </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">200</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb40-6" data-line-number="6"><span class="st">     </span><span class="kw">theme_classic</span> ()</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p>In this chart we have plotted the mean yield of every single unicorn by farm. We still want to know whether radio affects yield, but we know that some unicorns are probably high dust yielders, and others might be low yielding unicorns. In other words, we know that individuals vary, and so we want to know what happens to the group <em>on average</em>.</p>
+<p>But we can also see here that the groups seem to be different. The amount of variation isn’t the same between the groups. In fact, the farm ‘Radio Discussion’ is more closely clustered together than the others.</p>
+</div>
+<div id="partitioning-variation" class="section level3">
+<h3><span class="header-section-number">5.14.4</span> Partitioning Variation</h3>
+<p>Let’s think a little bit more about what we mean by this question: <em>does x affect y?</em></p>
+<p>We want to know what proportion of the variation we observe in y can be explained by x.</p>
+<pre class="sourceCode r" id="cb41"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co"># Let&#39;s have some new data</span></a>
+<a class="sourceLine" id="cb41-2" data-line-number="2">examples &lt;-<span class="st"> </span><span class="kw">tibble</span> (<span class="dt">x.perfect =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb41-3" data-line-number="3">                    <span class="dt">y.perfect =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>), </a>
+<a class="sourceLine" id="cb41-4" data-line-number="4">                    <span class="dt">x.realistic =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">11</span>), </a>
+<a class="sourceLine" id="cb41-5" data-line-number="5">                    <span class="dt">y.realistic =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">9</span>))</a>
+<a class="sourceLine" id="cb41-6" data-line-number="6"><span class="kw">ggplot</span> (<span class="dt">data =</span> examples, <span class="kw">aes</span>(x.perfect, y.perfect))<span class="op">+</span></a>
+<a class="sourceLine" id="cb41-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span> () <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-8" data-line-number="8"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="st">&quot;100% of the variation in y is explained by x&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb41-11" data-line-number="11"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p>In a ‘perfect’ dataset, we see that for every step x increases, y increases by the same. There’s a 1:1 relationship between the two.</p>
+<p>Of course, we very rarely ever see this in the real world.</p>
+<p>How does it look with (slightly) more realistic data?</p>
+<pre class="sourceCode r" id="cb42"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">ggplot</span> (<span class="dt">data =</span> examples, <span class="kw">aes</span>(x.realistic, y.realistic))<span class="op">+</span></a>
+<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span> () <span class="op">+</span></a>
+<a class="sourceLine" id="cb42-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb42-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb42-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="st">&quot;How much of the variation in y is explained by x?&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb42-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_classic</span>()</a></code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p>Most of us looking at this chart would be able to draw a ‘line of best fit’ describing the relationship between x and y in this example. With a linear model we can calculate this exactly. (This is the exact same equation as you would have learned at school <code>y = mx + c</code>, or <code>predicted y = gradient * (a value of x) + y intercept</code>)</p>
+<p>Let’s ask R to fit a linear model for this data:</p>
+<pre class="sourceCode r" id="cb44"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">lm</span>(<span class="dt">data =</span> examples, y.realistic <span class="op">~</span><span class="st"> </span>x.realistic)</a></code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y.realistic ~ x.realistic, data = examples)
+## 
+## Coefficients:
+## (Intercept)  x.realistic  
+##      1.3659       0.7561</code></pre>
+<p>The <code>lm</code> call stands for ‘linear model’ and is part of R’s basic stats code.</p>
+<p>The output here starts with the <em>Call</em> which reiterates what we specificed in our <code>lm</code> command. Then it gives us:</p>
+<ul>
+<li>Coefficient of the intercept (where our model line crosses the y axis)</li>
+<li>Coefficient of x.realistic</li>
+</ul>
+<p>Since x.realistic is a continuous variable, the x.realistic coeffcient represents the difference in the predicted value of Y for each one-unit difference in x.realistic.</p>
+<p>If that’s confusing, let’s run this on the perfect data:</p>
+<pre class="sourceCode r" id="cb46"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1"><span class="kw">lm</span>(<span class="dt">data =</span> examples, y.perfect <span class="op">~</span><span class="st"> </span>x.perfect)</a></code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y.perfect ~ x.perfect, data = examples)
+## 
+## Coefficients:
+## (Intercept)    x.perfect  
+##   1.123e-15    1.000e+00</code></pre>
+<p>The coefficient for x.perfect is <em>1</em> - because for every 1 step increase in the value of x, our value of y increases by 1.</p>
+<p>But what about <em>significance</em>? Which we all know is the thing you’re really looking for here. We can find that out by asking R to summarise the model:</p>
+<pre class="sourceCode r" id="cb48"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">lm</span>(<span class="dt">data =</span> examples, y.realistic <span class="op">~</span><span class="st"> </span>x.realistic))</a></code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y.realistic ~ x.realistic, data = examples)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.9024 -0.6159  0.1220  0.6037  0.8293 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  1.36585    0.46584   2.932   0.0189 *  
+## x.realistic  0.75610    0.07258  10.418 6.25e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.7199 on 8 degrees of freedom
+## Multiple R-squared:  0.9314, Adjusted R-squared:  0.9228 
+## F-statistic: 108.5 on 1 and 8 DF,  p-value: 6.247e-06</code></pre>
+<p>This time we get more information. The coefficients are still listed in the table, alongside their standard error, a T Value and a P value (and look at how significant it is - job done, right?)</p>
+<p>At the top we have residuals which we’ll come to another day, and at the bottom we have an F statistic and a P Value (these are the ones I’d pay attention to if I were you) and an <code>Adjusted R-squared</code>. At the moment this tell us that 92% of the variation in y.realistic can be explained by x.realistic.</p>
+<p>And if we wanted, we could add this to our plot from earlier with the addition of a single line of code:</p>
+<pre class="sourceCode r" id="cb50"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">ggplot</span> (<span class="dt">data =</span> examples, <span class="kw">aes</span>(x.realistic, y.realistic))<span class="op">+</span></a>
+<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span> () <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-3" data-line-number="3"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-4" data-line-number="4"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">10</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="st">&quot;How much of the variation in y is explained by x?&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb50-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_classic</span>() <span class="op">+</span><span class="st"> </span><span class="co"># And add a single line below:</span></a>
+<a class="sourceLine" id="cb50-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_smooth</span> (<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>) </a></code></pre>
+<pre><code>## Warning: Removed 1 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 1 rows containing missing values (geom_point).</code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
+<p>This is easy to do for two continuous variables, but in our unicorn farm example our explanatory variable is categorical. How do we decide how much of a difference in our response (dust yield) can be attributed to the radio condition?</p>
+</div>
+</div>
+<div id="calculating-variance" class="section level2">
+<h2><span class="header-section-number">5.15</span> Calculating Variance</h2>
+<p>The variability of data is how much the data is scattered around the mean. An ANOVA is simply asking: <strong>Is the mean of each group a better predictor than the mean of all the data?</strong>.</p>
+<p>Let’s start by looking at only one farm:</p>
+<pre class="sourceCode r" id="cb53"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">Radio <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">UnicornNo =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb53-3" data-line-number="3"><span class="st">  </span><span class="co"># The mutate function adds a new variable just to plot this one specific chart</span></a>
+<a class="sourceLine" id="cb53-4" data-line-number="4"><span class="st">  </span><span class="co"># And then we pipe it directly into ggplot, so we&#39;re not changing the Radio data</span></a>
+<a class="sourceLine" id="cb53-5" data-line-number="5"><span class="st">  </span><span class="co"># Remember you can check this with `View(Radio)`, you&#39;ll see &#39;UnicornNo&#39; doesn&#39;t exist.</span></a>
+<a class="sourceLine" id="cb53-6" data-line-number="6"><span class="st">  </span><span class="kw">ggplot</span> (<span class="kw">aes</span> (<span class="dt">x =</span> UnicornNo, <span class="dt">y =</span> NoRadio)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb53-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="st">&quot;Magic Dust Yield(kg) for Farm 1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Dust Yield (Kg)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">200</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-10" data-line-number="10"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb53-11" data-line-number="11"><span class="st">  </span><span class="co"># Edit the above line out to see what happens to the x axis</span></a>
+<a class="sourceLine" id="cb53-12" data-line-number="12"><span class="st">  </span><span class="kw">theme_classic</span> ()</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p>Deviations from the mean will be both positive and negative, and the sum of these deviations will always be zero. First, let’s find out the mean dust yield of the farm without any radio …</p>
+<pre class="sourceCode r" id="cb54"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">RadioTidy <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Radio) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(Radio <span class="op">==</span><span class="st"> &quot;NoRadio&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb54-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(DustYield))</a></code></pre>
+<pre><code>## # A tibble: 1 x 2
+##   Radio    mean
+##   &lt;chr&gt;   &lt;dbl&gt;
+## 1 NoRadio  111.</code></pre>
+<pre class="sourceCode r" id="cb56"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="co"># This looks like a super complicated way to calculate a mean - why do it like this?</span></a>
+<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="co"># Well, first by piping the data we don&#39;t actually save any changes</span></a>
+<a class="sourceLine" id="cb56-3" data-line-number="3"><span class="co"># We just get to see the result we&#39;re interested in. </span></a>
+<a class="sourceLine" id="cb56-4" data-line-number="4"><span class="co"># Delete the &#39;filter&#39; line and see what that looks like. </span></a></code></pre>
+<p>We could plot this on our chart:</p>
+<pre class="sourceCode r" id="cb57"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">Radio <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb57-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">count =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb57-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span> (<span class="kw">aes</span> (<span class="dt">x =</span> count, <span class="dt">y =</span> NoRadio)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb57-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb57-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="st">&quot;Magic Dust Yield(kg) for Farm 1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Dust Yield (Kg)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb57-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">200</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb57-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_classic</span> () <span class="op">+</span></a>
+<a class="sourceLine" id="cb57-8" data-line-number="8"><span class="st">  </span><span class="co"># This new line basically draws a line on our chart based on the mean we just calculated</span></a>
+<a class="sourceLine" id="cb57-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="fl">111.1</span>) </a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<div id="deviation-from-the-group-mean" class="section level3">
+<h3><span class="header-section-number">5.15.1</span> Deviation from the group mean</h3>
+<p>We want to know what the deviation from the mean of the group is for each individual. We can ask R to calculate this for us using the handy <code>mutate</code> function:</p>
+<pre class="sourceCode r" id="cb58"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1">Radio <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb58-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span> (<span class="dt">NoRadioDeviation =</span> (<span class="kw">mean</span>(NoRadio) <span class="op">-</span><span class="st"> </span>NoRadio)) </a></code></pre>
+<pre><code>## # A tibble: 10 x 4
+##    NoRadio RadioMusic RadioDiscussion NoRadioDeviation
+##      &lt;dbl&gt;      &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
+##  1     150        112              75         -38.9   
+##  2     130        127              98         -18.9   
+##  3     121        132              88          -9.9   
+##  4      90        150              83          21.1   
+##  5      98        112              83          13.1   
+##  6     100        128              77          11.1   
+##  7      98        110              75          13.1   
+##  8     100        120              84          11.1   
+##  9     113         98              93          -1.9   
+## 10     111        107              99           0.1000</code></pre>
+<pre class="sourceCode r" id="cb60"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># I&#39;m using Radio here instead of RadioTidy because I&#39;m being a bit lazy</span></a></code></pre>
+<p>And if you don’t believe me, you can run those calculations yourself:</p>
+<pre class="sourceCode r" id="cb61"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="fl">111.1</span><span class="dv">-150</span></a></code></pre>
+<pre><code>## [1] -38.9</code></pre>
+<p>See? Not convinced yet … ?</p>
+<pre class="sourceCode r" id="cb63"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="fl">111.1</span><span class="dv">-130</span></a></code></pre>
+<pre><code>## [1] -18.9</code></pre>
+<pre class="sourceCode r" id="cb65"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="fl">111.1</span><span class="dv">-121</span></a></code></pre>
+<pre><code>## [1] -9.9</code></pre>
+<pre class="sourceCode r" id="cb67"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="fl">111.1</span><span class="dv">-90</span></a></code></pre>
+<pre><code>## [1] 21.1</code></pre>
+<pre class="sourceCode r" id="cb69"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="fl">111.1</span><span class="dv">-98</span></a></code></pre>
+<pre><code>## [1] 13.1</code></pre>
+<pre class="sourceCode r" id="cb71"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="fl">111.1</span> <span class="op">-</span><span class="st"> </span><span class="dv">100</span></a></code></pre>
+<pre><code>## [1] 11.1</code></pre>
+<pre class="sourceCode r" id="cb73"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="co"># And so on</span></a></code></pre>
+<p>You can check that the sum of NoRadioDeviation does add to zero (or at least very close to it given some rounding errors):</p>
+<pre class="sourceCode r" id="cb74"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" data-line-number="1">Radio <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb74-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span> (<span class="dt">NoRadioDeviation =</span> (<span class="kw">mean</span>(NoRadio) <span class="op">-</span><span class="st"> </span>NoRadio)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb74-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span> (<span class="st">&quot;Sum of Deviations from No Radio Mean&quot;</span> =<span class="st"> </span><span class="kw">sum</span>(NoRadioDeviation))</a></code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   `Sum of Deviations from No Radio Mean`
+##                                    &lt;dbl&gt;
+## 1                    -0.0000000000000568</code></pre>
+<p>No matter what your dataset looks like, no matter what numbers are in there, this will always be true.</p>
+</div>
+<div id="calculating-variance-from-deviations" class="section level3">
+<h3><span class="header-section-number">5.15.2</span> Calculating variance from deviations</h3>
+<p>Because the deviations will always sum to 0, the raw deviations are not very useful.</p>
+<p>So how can we compare the deviation (variance) between two datasets?</p>
+<p>If we square the deviations and then sum them we have a more useful measure of variance that we call <em>Sums of Squares (SS)</em></p>
+<pre class="sourceCode r" id="cb76"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1">Radio <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb76-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span> (<span class="dt">NoRadioDeviation =</span> (<span class="kw">mean</span>(NoRadio) <span class="op">-</span><span class="st"> </span>NoRadio),</a>
+<a class="sourceLine" id="cb76-3" data-line-number="3">          <span class="dt">SquaredNoRadioDeviation =</span> (NoRadioDeviation<span class="op">*</span>NoRadioDeviation))</a></code></pre>
+<pre><code>## # A tibble: 10 x 5
+##    NoRadio RadioMusic RadioDiscussion NoRadioDeviation SquaredNoRadioDevi~
+##      &lt;dbl&gt;      &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;               &lt;dbl&gt;
+##  1     150        112              75         -38.9             1513.     
+##  2     130        127              98         -18.9              357.     
+##  3     121        132              88          -9.9               98.0    
+##  4      90        150              83          21.1              445.     
+##  5      98        112              83          13.1              172.     
+##  6     100        128              77          11.1              123.     
+##  7      98        110              75          13.1              172.     
+##  8     100        120              84          11.1              123.     
+##  9     113         98              93          -1.9                3.61   
+## 10     111        107              99           0.1000             0.01000</code></pre>
+<p>Sums of Squares are useful because they don’t sum to 0, but they’re still influenced by the number of data points we have (e.g. if we had one more unicorn in the No Radio farm the sum of squares would have to increase).</p>
+<p>So we calculate the variance of the dataset by:</p>
+<p><code>Variance = Sums of Squares / (n - 1)</code></p>
+<p>Variance is therefore a measure of the variability of a dataset that takes the size of the dataset into account. And we can use variance to compare variability across different datasets. It’s very useful!</p>
+<p>R, of course, has a very handy function to calculate variance automatically, <code>var</code>:</p>
+<pre class="sourceCode r" id="cb78"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1">Radio <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb78-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="st">&quot;Variance No Radio&quot;</span> =<span class="st"> </span><span class="kw">var</span>(NoRadio))</a></code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   `Variance No Radio`
+##                 &lt;dbl&gt;
+## 1                334.</code></pre>
+<p>But if you’re not convinced …</p>
+<pre class="sourceCode r" id="cb80"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">Radio <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb80-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span> (<span class="dt">NoRadioDeviation =</span> (<span class="kw">mean</span>(NoRadio) <span class="op">-</span><span class="st"> </span>NoRadio),</a>
+<a class="sourceLine" id="cb80-3" data-line-number="3">          <span class="dt">SquaredNoRadioDeviation =</span> (NoRadioDeviation<span class="op">*</span>NoRadioDeviation)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb80-4" data-line-number="4"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">SumSquaresNoRadio =</span> <span class="kw">sum</span>(SquaredNoRadioDeviation))</a></code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   SumSquaresNoRadio
+##               &lt;dbl&gt;
+## 1             3007.</code></pre>
+<p>And then divide that by <code>n-1</code>:</p>
+<pre class="sourceCode r" id="cb82"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="fl">3006.9</span><span class="op">/</span><span class="dv">9</span></a></code></pre>
+<pre><code>## [1] 334.1</code></pre>
+</div>
+</div>
+<div id="partitioning-variation-1" class="section level2">
+<h2><span class="header-section-number">5.16</span> Partitioning Variation</h2>
+<p>Remember, in this experiment we can see that there is variation around dust yields. What we want to know is:</p>
+<ul>
+<li>How much of this variation is due to our explanatory variable (what kind of radio they listened to)</li>
+<li><em>How does x affect y?</em></li>
+</ul>
+<div id="imaginary-scenario-1" class="section level3">
+<h3><span class="header-section-number">5.16.1</span> Imaginary Scenario 1</h3>
+<p>Let’s imagine a scenario where the condition (our categorical variable) explains almost all of the variance in the dataset.</p>
+<p>It would look like this:</p>
+<pre class="sourceCode r" id="cb84"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">Sce1&lt;-<span class="kw">tibble</span> (<span class="dt">Condition1 =</span> <span class="kw">c</span>(<span class="dv">99</span>,<span class="dv">100</span>,<span class="dv">101</span>,<span class="dv">99</span>,<span class="dv">100</span>,<span class="dv">101</span>,<span class="dv">99</span>,<span class="dv">101</span>,<span class="dv">100</span>,<span class="dv">101</span>),</a>
+<a class="sourceLine" id="cb84-2" data-line-number="2">              <span class="dt">Condition2 =</span> <span class="kw">c</span>(<span class="dv">120</span>,<span class="dv">121</span>,<span class="dv">122</span>,<span class="dv">120</span>,<span class="dv">121</span>,<span class="dv">122</span>,<span class="dv">120</span>,<span class="dv">123</span>,<span class="dv">121</span>,<span class="dv">120</span>),</a>
+<a class="sourceLine" id="cb84-3" data-line-number="3">              <span class="dt">Condition3 =</span> <span class="kw">c</span>(<span class="dv">83</span>,<span class="dv">84</span>,<span class="dv">85</span>,<span class="dv">85</span>,<span class="dv">84</span>,<span class="dv">83</span>,<span class="dv">83</span>,<span class="dv">84</span>,<span class="dv">85</span>,<span class="dv">86</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb84-4" data-line-number="4"><span class="st">  </span><span class="kw">gather</span> (<span class="dt">key =</span> Condition, <span class="dt">value =</span> DustYield) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb84-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span> (<span class="dt">Count =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)) </a>
+<a class="sourceLine" id="cb84-6" data-line-number="6"><span class="co"># In the code above I&#39;ve gathered the data into a tidy format </span></a>
+<a class="sourceLine" id="cb84-7" data-line-number="7">ImaginaryScenario1 &lt;-<span class="st"> </span>Sce1 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb84-8" data-line-number="8"><span class="st">  </span><span class="kw">ggplot</span> (<span class="kw">aes</span> (<span class="dt">x =</span> Count, <span class="dt">y =</span> DustYield)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb84-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> Condition, <span class="dt">colour =</span> Condition)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb84-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="st">&quot;Magic Dust Yield(kg) for Farm 1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Dust Yield (Kg)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Unicorn ID Number&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb84-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">200</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb84-12" data-line-number="12"><span class="st">  </span><span class="kw">theme_classic</span> ()</a>
+<a class="sourceLine" id="cb84-13" data-line-number="13"><span class="co"># I have also made this chart an object because we&#39;re going to update it</span></a>
+<a class="sourceLine" id="cb84-14" data-line-number="14"><span class="co"># It&#39;s quicker to do this as an object</span></a>
+<a class="sourceLine" id="cb84-15" data-line-number="15"><span class="co"># You can compare how we update this chart with how we update the ones above.</span></a>
+<a class="sourceLine" id="cb84-16" data-line-number="16">ImaginaryScenario1</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-47-1.png" width="672" /></p>
+<p>We could fit the mean of the dataset on this:</p>
+<pre class="sourceCode r" id="cb85"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">ImaginaryScenario1 <span class="op">+</span></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(Sce1<span class="op">$</span>DustYield))</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-48-1.png" width="672" /></p>
+<p>Let’s compare the overall mean with the group means, and see which one is the best guess for any given data point. Remember - if the condition is explaining a lot of the variation around our response, we’ll see less deviation from each group mean than the overall mean.</p>
+<pre class="sourceCode r" id="cb86"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">Sce1 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="st">  </span><span class="kw">group_by</span>(Condition) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb86-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span> (DustYield))</a></code></pre>
+<pre><code>## # A tibble: 3 x 2
+##   Condition   mean
+##   &lt;chr&gt;      &lt;dbl&gt;
+## 1 Condition1 100. 
+## 2 Condition2 121  
+## 3 Condition3  84.2</code></pre>
+<pre class="sourceCode r" id="cb88"><code class="sourceCode r"><a class="sourceLine" id="cb88-1" data-line-number="1">ImaginaryScenario1 <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(Sce1<span class="op">$</span>DustYield)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x =</span><span class="dv">1</span>, <span class="dt">y =</span> <span class="fl">100.1</span>, <span class="dt">xend =</span><span class="dv">10</span>, <span class="dt">yend =</span> <span class="fl">100.1</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">11</span>, <span class="dt">y =</span> <span class="fl">121.0</span>, <span class="dt">xend =</span> <span class="dv">20</span>, <span class="dt">yend =</span> <span class="fl">121.0</span>, <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_segment</span> (<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">21</span>, <span class="dt">y =</span> <span class="fl">84.2</span>, <span class="dt">xend =</span> <span class="dv">30</span>, <span class="dt">yend =</span> <span class="fl">84.2</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb88-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span> (<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-49-1.png" width="672" /></p>
+<p>In this case, the individual group means are a better description of the group than the overall population mean. Any statistics we were to apply would simply put a number to what we see on this chart.</p>
+<p>So let’s look at a second scenario:</p>
+<pre class="sourceCode r" id="cb89"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1">Sce2&lt;-<span class="kw">tibble</span> (<span class="dt">Condition1 =</span> <span class="kw">c</span>(<span class="dv">84</span>,<span class="dv">86</span>,<span class="dv">123</span>,<span class="dv">95</span>,<span class="dv">87</span>,<span class="dv">110</span>,<span class="dv">99</span>,<span class="dv">95</span>,<span class="dv">121</span>,<span class="dv">121</span>),</a>
+<a class="sourceLine" id="cb89-2" data-line-number="2">              <span class="dt">Condition2 =</span> <span class="kw">c</span>(<span class="dv">83</span>,<span class="dv">115</span>,<span class="dv">85</span>,<span class="dv">85</span>, <span class="dv">110</span>,<span class="dv">105</span>,<span class="dv">84</span>,<span class="dv">115</span>,<span class="dv">101</span>,<span class="dv">100</span>),</a>
+<a class="sourceLine" id="cb89-3" data-line-number="3">              <span class="dt">Condition3 =</span> <span class="kw">c</span>(<span class="dv">84</span>,<span class="dv">122</span>,<span class="dv">80</span>,<span class="dv">80</span>,<span class="dv">101</span>,<span class="dv">83</span>,<span class="dv">83</span>,<span class="dv">99</span>, <span class="dv">120</span>,<span class="dv">120</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb89-4" data-line-number="4"><span class="st">  </span><span class="kw">gather</span> (<span class="dt">key =</span> Condition, <span class="dt">value =</span> DustYield) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb89-5" data-line-number="5"><span class="st">  </span><span class="kw">mutate</span> (<span class="dt">Count =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)) </a>
+<a class="sourceLine" id="cb89-6" data-line-number="6">Sce2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb89-7" data-line-number="7"><span class="st">  </span><span class="kw">group_by</span>(Condition) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb89-8" data-line-number="8"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">mean =</span> <span class="kw">mean</span> (DustYield))</a></code></pre>
+<pre><code>## # A tibble: 3 x 2
+##   Condition   mean
+##   &lt;chr&gt;      &lt;dbl&gt;
+## 1 Condition1 102. 
+## 2 Condition2  98.3
+## 3 Condition3  97.2</code></pre>
+<p>Now we chart it, and add our segment lines for each group’s mean:</p>
+<pre class="sourceCode r" id="cb91"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1">Sce2 <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb91-2" data-line-number="2"><span class="st">  </span><span class="kw">ggplot</span> (<span class="kw">aes</span> (<span class="dt">x =</span> Count, <span class="dt">y =</span> DustYield)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb91-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> Condition, <span class="dt">colour =</span> Condition)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-4" data-line-number="4"><span class="st">  </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="st">&quot;Magic Dust Yield(kg) for Farm 1&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Dust Yield (Kg)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Unicorn ID Number&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-5" data-line-number="5"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">200</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-6" data-line-number="6"><span class="st">  </span><span class="kw">theme_classic</span> () <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-7" data-line-number="7"><span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">mean</span>(Sce2<span class="op">$</span>DustYield)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-8" data-line-number="8"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x =</span><span class="dv">1</span>, <span class="dt">y =</span> <span class="fl">102.1</span>, <span class="dt">xend =</span><span class="dv">10</span>, <span class="dt">yend =</span> <span class="fl">102.1</span>, <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-9" data-line-number="9"><span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">11</span>, <span class="dt">y =</span> <span class="fl">98.3</span>, <span class="dt">xend =</span> <span class="dv">20</span>, <span class="dt">yend =</span> <span class="fl">98.3</span>, <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_segment</span> (<span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">21</span>, <span class="dt">y =</span> <span class="fl">97.2</span>, <span class="dt">xend =</span> <span class="dv">30</span>, <span class="dt">yend =</span> <span class="fl">97.2</span>, <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb91-11" data-line-number="11"><span class="st">  </span><span class="kw">theme</span> (<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-51-1.png" width="672" /></p>
+<p>In this second scenaro, the population mean is not very different from the means of each of the three conditions. In fact, it’s hard to see some of those means on the chart! We haven’t successfully partitioned off any of the dataset’s varaiance by looking at each of the condition means.</p>
+<p>In this second scenario, the explanatory variable is not explaining very much of the response variable at all.</p>
+</div>
+</div>
+<div id="our-scenario" class="section level2">
+<h2><span class="header-section-number">5.17</span> Our Scenario</h2>
+<p>If we plot our unicorn data in the same format:</p>
+<pre class="sourceCode r" id="cb92"><code class="sourceCode r"><a class="sourceLine" id="cb92-1" data-line-number="1"><span class="kw">kable</span> (Radio,</a>
+<a class="sourceLine" id="cb92-2" data-line-number="2">       <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;No Radio&quot;</span>, <span class="st">&quot;Radio Playing Music&quot;</span>, <span class="st">&quot;Radio Playing Discussion&quot;</span>), </a>
+<a class="sourceLine" id="cb92-3" data-line-number="3">       <span class="dt">caption =</span> <span class="st">&quot;Raw weekly dust yield (kg) from three unicorn farms&quot;</span>)</a></code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-52">Table 5.2: </span>Raw weekly dust yield (kg) from three unicorn farms</caption>
+<thead>
+<tr class="header">
+<th align="right">No Radio</th>
+<th align="right">Radio Playing Music</th>
+<th align="right">Radio Playing Discussion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">150</td>
+<td align="right">112</td>
+<td align="right">75</td>
+</tr>
+<tr class="even">
+<td align="right">130</td>
+<td align="right">127</td>
+<td align="right">98</td>
+</tr>
+<tr class="odd">
+<td align="right">121</td>
+<td align="right">132</td>
+<td align="right">88</td>
+</tr>
+<tr class="even">
+<td align="right">90</td>
+<td align="right">150</td>
+<td align="right">83</td>
+</tr>
+<tr class="odd">
+<td align="right">98</td>
+<td align="right">112</td>
+<td align="right">83</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">128</td>
+<td align="right">77</td>
+</tr>
+<tr class="odd">
+<td align="right">98</td>
+<td align="right">110</td>
+<td align="right">75</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">120</td>
+<td align="right">84</td>
+</tr>
+<tr class="odd">
+<td align="right">113</td>
+<td align="right">98</td>
+<td align="right">93</td>
+</tr>
+<tr class="even">
+<td align="right">111</td>
+<td align="right">107</td>
+<td align="right">99</td>
+</tr>
+</tbody>
+</table>
+<pre class="sourceCode r" id="cb93"><code class="sourceCode r"><a class="sourceLine" id="cb93-1" data-line-number="1">RadioTidy <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb93-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">count =</span> <span class="kw">c</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">30</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb93-3" data-line-number="3"><span class="st">  </span><span class="kw">ggplot</span> (<span class="kw">aes</span> (<span class="dt">x =</span> count, <span class="dt">y =</span> DustYield)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb93-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">shape =</span> Radio, <span class="dt">colour =</span> Radio)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span> (<span class="dt">title =</span> <span class="st">&quot;Magic Dust Yield(kg)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Dust Yield (Kg)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Unicorn ID Number&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">limits =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">200</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb93-7" data-line-number="7"><span class="st">  </span><span class="kw">theme_classic</span> ()</a></code></pre>
+<p><img src="r-convo-book_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<div id="a-word-on-significance" class="section level3">
+<h3><span class="header-section-number">5.17.1</span> A word on significance</h3>
+<p>We’re beginning to get closer to the real definition of significance.</p>
+<p><strong>Significance:</strong> Is the variability explained by our model greater than we would expect by chance alone.</p>
+<p>And this is what variance can answer.</p>
+</div>
+<div id="going-back-to-sums-of-squares" class="section level3">
+<h3><span class="header-section-number">5.17.2</span> Going Back to Sums of Squares</h3>
+<p>In our two imaginary scenarios above we were (roughly) partitioning variances by drawing lines on our charts - much like we could draw a line of best fit on the perfect data chart earlier.</p>
+<p>When we run a model, we want to describe that chart mathematically.</p>
+<p>When we calculated variance earlier, we calculated the variance in the condition mean mean (e.g. the variance for No Radio data). We can call this the <strong>Error Sum of Squares (SSE)</strong> which is the sum of the squares of the deviations of the data around the means of each group.</p>
+<p>We could also calculate …</p>
+<ul>
+<li><strong>Total Sums of Squares (SSY)</strong>, the sums of squares of the deviations of the data around the population mean.</li>
+<li><strong>Condition Sums of Squares (SSF)</strong>, the sums of squares of the deviations of each condition mean from the population mean.</li>
+</ul>
+<p>But why would we use any sums of squares when we already establishd that variance was a better measure?</p>
+<p>Let’s rearrange our data so we have for each ‘row’ the condition mean and total mean. We’re going to call this dataset <code>MFY</code> for short because:</p>
+<ul>
+<li>M is the global mean</li>
+<li>F is the condition mean</li>
+<li>Y is the ‘response variable’</li>
+</ul>
+<pre class="sourceCode r" id="cb94"><code class="sourceCode r"><a class="sourceLine" id="cb94-1" data-line-number="1">MFY &lt;-<span class="st"> </span>RadioTidy <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span> (<span class="st">&quot;Y&quot;</span> =<span class="st"> </span>DustYield) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-3" data-line-number="3"><span class="st">  </span><span class="kw">mutate</span> (<span class="st">&quot;M&quot;</span> =<span class="st"> </span><span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-4" data-line-number="4"><span class="st">  </span><span class="co"># If we now ask R to group the data, it will calculate the mean per group:</span></a>
+<a class="sourceLine" id="cb94-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(Radio) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span> (<span class="st">&quot;F&quot;</span> =<span class="st"> </span><span class="kw">mean</span>(Y)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb94-7" data-line-number="7"><span class="st">  </span><span class="co"># Remember to ungroup after!</span></a>
+<a class="sourceLine" id="cb94-8" data-line-number="8"><span class="st">  </span><span class="kw">ungroup</span>() </a>
+<a class="sourceLine" id="cb94-9" data-line-number="9"><span class="co">#  I suggest you `view(MFY)`</span></a></code></pre>
+<p>We can also calculate:</p>
+<ul>
+<li>MY (The data - Dataset mean)</li>
+<li>MF (The condition mean - dataset mean)</li>
+<li>FY (The data - condition mean)</li>
+</ul>
+<pre class="sourceCode r" id="cb95"><code class="sourceCode r"><a class="sourceLine" id="cb95-1" data-line-number="1">MFY &lt;-<span class="st"> </span>MFY <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb95-2" data-line-number="2"><span class="st"> </span><span class="kw">mutate</span> (<span class="dt">MY =</span> (Y<span class="op">-</span>M),</a>
+<a class="sourceLine" id="cb95-3" data-line-number="3">         <span class="dt">MF =</span> (F<span class="op">-</span>M),</a>
+<a class="sourceLine" id="cb95-4" data-line-number="4">         <span class="dt">FY =</span> (Y <span class="op">-</span><span class="st"> </span>F))</a></code></pre>
+<p>We’ve calculated a lot of deviations here - but we said we always wanted to square those deviations, so:</p>
+<pre class="sourceCode r" id="cb96"><code class="sourceCode r"><a class="sourceLine" id="cb96-1" data-line-number="1">MFY &lt;-<span class="st"> </span>MFY <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb96-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span> (<span class="dt">MY2 =</span> (MY<span class="op">*</span>MY),</a>
+<a class="sourceLine" id="cb96-3" data-line-number="3">          <span class="dt">MF2 =</span> (MF<span class="op">*</span>MF),</a>
+<a class="sourceLine" id="cb96-4" data-line-number="4">          <span class="dt">FY2 =</span> (FY<span class="op">*</span>FY))</a></code></pre>
+<p>MY2, MF2 &amp; FY2 are the squares of the deviations, but we need a sum of squares for each one.</p>
+<pre class="sourceCode r" id="cb97"><code class="sourceCode r"><a class="sourceLine" id="cb97-1" data-line-number="1">MFY <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb97-2" data-line-number="2"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">SumSquareMY =</span> <span class="kw">sum</span>(MY2),</a>
+<a class="sourceLine" id="cb97-3" data-line-number="3">            <span class="dt">SumSquareMF =</span> <span class="kw">sum</span>(MF2),</a>
+<a class="sourceLine" id="cb97-4" data-line-number="4">            <span class="dt">SumSquareFY =</span> <span class="kw">sum</span>(FY2))</a></code></pre>
+<pre><code>## # A tibble: 1 x 3
+##   SumSquareMY SumSquareMF SumSquareFY
+##         &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+## 1      12053.       6301.       5752.</code></pre>
+<p>But we also have one more bit of information we need to consider - what we call <strong>degrees of freedom</strong>. Let’s say we want to put those sum squares into a nice table. We could also add in a row talking about the degrees of freedom.</p>
+<p>There are degrees of freedom for:</p>
+<ul>
+<li><strong>M</strong> - which is 1. There is only 1 bit of information in the whole group mean</li>
+<li><strong>F</strong> - which is 3. There are only 3 means in the conditions.</li>
+<li><strong>Y</strong> - which is 30. We have 30 data points to observe.</li>
+</ul>
+<p>If you were to calculate the degrees of freedom (dof) for MY, MF and FY - you can run the same calculation:</p>
+<ul>
+<li><strong>MY</strong> (Ydof - Mdof = 30 - 1 = 29)</li>
+<li><strong>MF</strong> (Fdof - Mdof = 3 - 1 = 2)</li>
+<li><strong>FY</strong> (Ydof - Fdof = 30 - 3 = 27)</li>
+</ul>
+<p>We can calculate something called <strong>mean squares</strong> which is:
+<code>Mean Squares = Sum of Squares / Degrees of Freedom</code></p>
+<p>So:</p>
+<ul>
+<li><strong>MS-MY</strong> = (12053.2/ 29) = 415.6276</li>
+<li><strong>MS-MF</strong> = (6301.4/2) = 3150.7</li>
+<li><strong>MS-FY</strong> = (5751.8/27) = 213.0296</li>
+</ul>
+<p>And this is pretty much all we can do with the data.</p>
+<pre class="sourceCode r" id="cb99"><code class="sourceCode r"><a class="sourceLine" id="cb99-1" data-line-number="1"><span class="kw">kable</span>(MFY <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb99-2" data-line-number="2"><span class="st">        </span><span class="kw">summarise</span>(<span class="dt">SumSquareMY =</span> <span class="kw">sum</span>(MY2),</a>
+<a class="sourceLine" id="cb99-3" data-line-number="3">                  <span class="dt">SumSquareMF =</span> <span class="kw">sum</span>(MF2),</a>
+<a class="sourceLine" id="cb99-4" data-line-number="4">                  <span class="dt">SumSquareFY =</span> <span class="kw">sum</span>(FY2),</a>
+<a class="sourceLine" id="cb99-5" data-line-number="5">                  <span class="dt">MeanSquareMY =</span> <span class="kw">sum</span>(MY2)<span class="op">/</span><span class="dv">29</span>,</a>
+<a class="sourceLine" id="cb99-6" data-line-number="6">                  <span class="dt">MeanSquareMF =</span> <span class="kw">sum</span>(MF2)<span class="op">/</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb99-7" data-line-number="7">                  <span class="dt">MeanSquareFY =</span> <span class="kw">sum</span>(FY2)<span class="op">/</span><span class="dv">27</span>))</a></code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">SumSquareMY</th>
+<th align="right">SumSquareMF</th>
+<th align="right">SumSquareFY</th>
+<th align="right">MeanSquareMY</th>
+<th align="right">MeanSquareMF</th>
+<th align="right">MeanSquareFY</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">12053.2</td>
+<td align="right">6301.4</td>
+<td align="right">5751.8</td>
+<td align="right">415.6276</td>
+<td align="right">3150.7</td>
+<td align="right">213.0296</td>
+</tr>
+</tbody>
+</table>
+<p>Earlier we said variance was important because it took into account the size of the dataset.</p>
+<p>Mean Squares are very similar to the variance calculation, because they’re a measure of deviation in relation to the size of the dataset.</p>
+</div>
+</div>
+<div id="the-importance-of-mean-squares" class="section level2">
+<h2><span class="header-section-number">5.18</span> The Importance of Mean Squares</h2>
+<p>If the condition (radio) has no effect on the data, then the variation we would see between the farms would be similar to the variation we saw within any given farm. It would be like Scenario 2, where the mean of the farm was no more use to us than the mean of the overall population.</p>
+<p>If that were the case: the <code>Condition Mean Square (FMS)  / Error Mean Square (EMS) = 1</code></p>
+<p>Let’s look again at that last table.</p>
+<pre class="sourceCode r" id="cb100"><code class="sourceCode r"><a class="sourceLine" id="cb100-1" data-line-number="1"><span class="kw">kable</span>(MFY <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb100-2" data-line-number="2"><span class="st">        </span><span class="kw">summarise</span>(<span class="dt">SumSquareMY =</span> <span class="kw">sum</span>(MY2),</a>
+<a class="sourceLine" id="cb100-3" data-line-number="3">                  <span class="dt">SumSquareMF =</span> <span class="kw">sum</span>(MF2),</a>
+<a class="sourceLine" id="cb100-4" data-line-number="4">                  <span class="dt">SumSquareFY =</span> <span class="kw">sum</span>(FY2),</a>
+<a class="sourceLine" id="cb100-5" data-line-number="5">                  <span class="dt">MeanSquareMY =</span> <span class="kw">sum</span>(MY2)<span class="op">/</span><span class="dv">29</span>,</a>
+<a class="sourceLine" id="cb100-6" data-line-number="6">                  <span class="dt">MeanSquareMF =</span> <span class="kw">sum</span>(MF2)<span class="op">/</span><span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb100-7" data-line-number="7">                  <span class="dt">MeanSquareFY =</span> <span class="kw">sum</span>(FY2)<span class="op">/</span><span class="dv">27</span>))</a></code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">SumSquareMY</th>
+<th align="right">SumSquareMF</th>
+<th align="right">SumSquareFY</th>
+<th align="right">MeanSquareMY</th>
+<th align="right">MeanSquareMF</th>
+<th align="right">MeanSquareFY</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">12053.2</td>
+<td align="right">6301.4</td>
+<td align="right">5751.8</td>
+<td align="right">415.6276</td>
+<td align="right">3150.7</td>
+<td align="right">213.0296</td>
+</tr>
+</tbody>
+</table>
+<p>And now we will take the Condition Mean Square and Error Mean Squares from that table:</p>
+<ul>
+<li>FMS = 3150.7</li>
+<li>ENS = 213.0296</li>
+</ul>
+<p>And we’ll call this the F Ratio.</p>
+<pre class="sourceCode r" id="cb101"><code class="sourceCode r"><a class="sourceLine" id="cb101-1" data-line-number="1"><span class="fl">3150.7</span><span class="op">/</span><span class="fl">213.0296</span></a></code></pre>
+<pre><code>## [1] 14.78996</code></pre>
+</div>
+<div id="f-ratios-and-f-distributions" class="section level2">
+<h2><span class="header-section-number">5.19</span> F Ratios and F Distributions</h2>
+<p>Because the mean squares are standardised by the size of the dataset, we can mathematically calculate the range and likelihood of any F-Ratio. This is called the F Distribution.</p>
+<p>You can <a href="http://www.socr.ucla.edu/Applets.dir/F_Table.html">look up</a> F distributions for an alpha level of 0.05. <a href="http://www.socr.ucla.edu/Applets.dir/F_Table.html#FTable0.05">Click here to go directly there</a>. We are interested in the ratio between 2 and 27 degrees of freedom, which gives us a critical F ratio of <strong>3.3541</strong>, which our F Ratio (14.79) is much bigger than.</p>
+<p>In fact, if we were to plot a curve of the F Distribution between 2 and 27 degrees of freedom, less than 0.001% of the total area would be more than 14.79.</p>
+</div>
+<div id="in-conclusion-.-.-." class="section level2">
+<h2><span class="header-section-number">5.20</span> In Conclusion . . .</h2>
+<blockquote>
+<p>The probability of getting an F-Ratio as large as 14.8 (or larger), if the null hypothes (x has no effect on y) is true, is less than 0.001
+Or: F (between 2 and 27 degrees of freedom) = 14.79, and P &lt; 0.001
+<strong>CONGRATULATIONS!</strong>
+You just ran an ANOVA completely by hand.
+# Prove It
+Of course, we don’t run ANOVAs by hand. We don’t use all these steps to run an ANOVA. Instead we go back to the RadioTidy data, which if you <code>View(RadioTidy)</code>, you will note doesn’t have any of our squares or sum squares or mean squares calculated.</p>
+</blockquote>
+<p>And we ask R to run an ANOVA:</p>
+<pre class="sourceCode r" id="cb103"><code class="sourceCode r"><a class="sourceLine" id="cb103-1" data-line-number="1">ANOVA &lt;-<span class="st"> </span><span class="kw">aov</span>(DustYield <span class="op">~</span><span class="st"> </span>Radio, <span class="dt">data =</span> RadioTidy)</a>
+<a class="sourceLine" id="cb103-2" data-line-number="2"><span class="kw">summary</span>(ANOVA)</a></code></pre>
+<pre><code>##             Df Sum Sq Mean Sq F value  Pr(&gt;F)    
+## Radio        2   6301    3151   14.79 4.6e-05 ***
+## Residuals   27   5752     213                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>And that command <code>summary(ANOVA)</code> gives us a table exactly like the one we calculated by ourselves.</p>
+<p>When we say that radio has a significant effect on the dust yield of unicorns in an ANOVA (F<sup>2,27</sup>=14.79, P&lt;0.001) - you now know exactly what those numbers refer to.</p>
+<p>And now that you’ve run it by yourself, what would you recommend to the unicorn farmers of Scotland?</p>
+</div>
+<div id="widetalldata" class="section level2">
+<h2><span class="header-section-number">5.21</span> Wide and Tall data</h2>
+<div id="about-this-exercise" class="section level3">
+<h3><span class="header-section-number">5.21.1</span> About This Exercise</h3>
+<p><strong>Exercise Type:</strong> Guidance</p>
+<p><em>Guidance documents explore how to practice R</em></p>
+<p><strong>Exercise Suitability:</strong> Intermediate</p>
+<p><em>If you are getting comfortable running your own code, this exericse will begin to push you forward</em></p>
+<p>These are some notes on changing the format of data from tall to wide and vice versa. Like everything R there are many ways to do this and I used to be a big fan of the <code>reshape2</code> package until one day I had a Eureka moment about how <code>gather</code> and <code>spread</code> work.</p>
+<p>I’m writing this out mainly because I found the online tutorials thought this was obvious and it wasn’t to me!</p>
+</div>
+<div id="learning-outcomes-2" class="section level3">
+<h3><span class="header-section-number">5.21.2</span> Learning Outcomes</h3>
+<p>By the end of this workshop you should be able to . . .</p>
+<ul>
+<li>Reshape data at will</li>
+<li>(Optional: Make preserve-related puns about spreadable data)</li>
+</ul>
+</div>
+</div>
+<div id="the-r-environment-2" class="section level2">
+<h2><span class="header-section-number">5.22</span> The R Environment</h2>
+<p>Here are the packages you’ll need for this exercise. (Remember, if you don’t have one of these packages you can install it with the command: <code>install.packages(&quot;packagename&quot;)</code></p>
+<pre class="sourceCode r" id="cb105"><code class="sourceCode r"><a class="sourceLine" id="cb105-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre>
+</div>
+<div id="the-observation" class="section level2">
+<h2><span class="header-section-number">5.23</span> The Observation</h2>
+<p>As <a href="http://vita.had.co.nz/papers/tidy-data.html">everyone online says</a> - tidy data has <strong>one observation per row</strong>. My headaches came from dealing with the publicly available <a href="https://www.officeforstudents.org.uk/advice-and-guidance/student-information-and-data/national-student-survey-nss/">National Student Survey</a> data - the format of which <em>seems</em> tidy to the uninitiated. The data is presented with each subject at each university as a row - that’s an observation, surely?</p>
+<div id="the-data" class="section level3">
+<h3><span class="header-section-number">5.23.1</span> The Data</h3>
+<pre class="sourceCode r" id="cb106"><code class="sourceCode r"><a class="sourceLine" id="cb106-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">tibble</span> (<span class="dt">group1 =</span> <span class="kw">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;B&quot;</span>),</a>
+<a class="sourceLine" id="cb106-2" data-line-number="2">                <span class="dt">group2 =</span> <span class="kw">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>, <span class="st">&quot;Y&quot;</span>, <span class="st">&quot;X&quot;</span>, <span class="st">&quot;X&quot;</span>, <span class="st">&quot;Z&quot;</span>, <span class="st">&quot;Z&quot;</span>),</a>
+<a class="sourceLine" id="cb106-3" data-line-number="3">                <span class="dt">q =</span> <span class="kw">c</span> (<span class="st">&quot;Q1&quot;</span>, <span class="st">&quot;Q2&quot;</span>,<span class="st">&quot;Q1&quot;</span>, <span class="st">&quot;Q2&quot;</span>, <span class="st">&quot;Q1&quot;</span>, <span class="st">&quot;Q2&quot;</span>, <span class="st">&quot;Q1&quot;</span>, <span class="st">&quot;Q2&quot;</span>),</a>
+<a class="sourceLine" id="cb106-4" data-line-number="4">                <span class="dt">disagree =</span> <span class="kw">c</span>(<span class="fl">0.8</span>, <span class="fl">0.3</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="fl">0.7</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>, <span class="fl">0.3</span>),</a>
+<a class="sourceLine" id="cb106-5" data-line-number="5">                <span class="dt">neutral =</span> <span class="kw">c</span>(<span class="fl">0.05</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>),</a>
+<a class="sourceLine" id="cb106-6" data-line-number="6">                <span class="dt">agree =</span> <span class="kw">c</span>(<span class="fl">0.15</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>),</a>
+<a class="sourceLine" id="cb106-7" data-line-number="7">                <span class="dt">n =</span> <span class="kw">c</span>(<span class="dv">121</span>, <span class="dv">121</span>, <span class="dv">140</span>, <span class="dv">140</span>, <span class="dv">50</span>, <span class="dv">50</span>, <span class="dv">57</span>,<span class="dv">57</span>)) </a>
+<a class="sourceLine" id="cb106-8" data-line-number="8">data</a></code></pre>
+<pre><code>## # A tibble: 8 x 7
+##   group1 group2 q     disagree neutral agree     n
+##   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 A      X      Q1         0.8    0.05  0.15   121
+## 2 A      X      Q2         0.3    0.4   0.3    121
+## 3 A      Y      Q1         0.8    0.1   0.1    140
+## 4 A      Y      Q2         0.2    0.3   0.5    140
+## 5 B      X      Q1         0.7    0.1   0.2     50
+## 6 B      X      Q2         0.5    0.4   0.1     50
+## 7 B      Z      Q1         0.6    0.2   0.2     57
+## 8 B      Z      Q2         0.3    0.3   0.4     57</code></pre>
+<p>However, for a lot of what I was trying to do, I needed to know how many students responded at each level - how many agreed with Q1, Q2, etc, in each nested group. I wanted my data taller.</p>
+<p>(I’m using this specific format not because it’s a nice format, but because it’s a format that exists in the world and that lots of people make big decisions on.)</p>
+</div>
+</div>
+<div id="gather" class="section level2">
+<h2><span class="header-section-number">5.24</span> Gather</h2>
+<p>The <code>gather</code> command from <code>tidyverse</code> is a quick way to smush this data into a tall format. The <code>gather</code> command creates two new columns, the <code>key</code> column which collects your old column names and your <code>value</code> column which collects the row values (fairly self-explanatory).</p>
+<p>The trick with <code>gather</code> is that it will smush everything it can into those two columns, so you need to tell it which columns <em>not</em> to include. This is the step that eluded me for a whole afternoon once, so I’m stating it very obviously here.</p>
+<pre class="sourceCode r" id="cb108"><code class="sourceCode r"><a class="sourceLine" id="cb108-1" data-line-number="1">talldata &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb108-2" data-line-number="2"><span class="st">  </span><span class="kw">gather</span> (<span class="dt">key =</span> LikertScale, <span class="dt">value =</span> PercRespondents,</a>
+<a class="sourceLine" id="cb108-3" data-line-number="3">          <span class="op">-</span>group1,</a>
+<a class="sourceLine" id="cb108-4" data-line-number="4">          <span class="op">-</span>group2,</a>
+<a class="sourceLine" id="cb108-5" data-line-number="5">          <span class="op">-</span>q,</a>
+<a class="sourceLine" id="cb108-6" data-line-number="6">          <span class="op">-</span>n)</a>
+<a class="sourceLine" id="cb108-7" data-line-number="7">talldata</a></code></pre>
+<pre><code>## # A tibble: 24 x 6
+##    group1 group2 q         n LikertScale PercRespondents
+##    &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;                 &lt;dbl&gt;
+##  1 A      X      Q1      121 disagree               0.8 
+##  2 A      X      Q2      121 disagree               0.3 
+##  3 A      Y      Q1      140 disagree               0.8 
+##  4 A      Y      Q2      140 disagree               0.2 
+##  5 B      X      Q1       50 disagree               0.7 
+##  6 B      X      Q2       50 disagree               0.5 
+##  7 B      Z      Q1       57 disagree               0.6 
+##  8 B      Z      Q2       57 disagree               0.3 
+##  9 A      X      Q1      121 neutral                0.05
+## 10 A      X      Q2      121 neutral                0.4 
+## # ... with 14 more rows</code></pre>
+<div id="nb---think-about-your-variable-names" class="section level3">
+<h3><span class="header-section-number">5.24.1</span> NB - Think About Your Variable Names</h3>
+<p>I once spent a whole afternoon unable to recreate an error message I was getting with <code>gather</code> - only to realise long after home time that I had sensibly called the <code>key</code> variable <em>question</em> which was a variable name that already existed in my dataset. R was re-writing the variable every time it gathered the data.</p>
+<p>The take home? <strong>Make sure your key and value names are unique!</strong></p>
+</div>
+</div>
+<div id="spread" class="section level2">
+<h2><span class="header-section-number">5.25</span> Spread</h2>
+<p>What if, after all that, you realise that you never wanted your data gathered at all? <code>spread</code> is here to rescue you.</p>
+<p>Just as before, <code>spread</code> wants to know the <code>key</code> and the <code>value</code>, but this time, it will split those two columns into multiple columns. This time we want all that data to be spread out like marmalade on toast, so we don’t exclude any columns (in fact, try excluding the columns and see what spread says. )</p>
+<pre class="sourceCode r" id="cb110"><code class="sourceCode r"><a class="sourceLine" id="cb110-1" data-line-number="1">widedata &lt;-<span class="st"> </span>talldata <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb110-2" data-line-number="2"><span class="st">  </span><span class="kw">spread</span> (<span class="dt">key =</span> LikertScale, <span class="dt">value =</span> PercRespondents)</a>
+<a class="sourceLine" id="cb110-3" data-line-number="3">widedata</a></code></pre>
+<pre><code>## # A tibble: 8 x 7
+##   group1 group2 q         n agree disagree neutral
+##   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+## 1 A      X      Q1      121  0.15      0.8    0.05
+## 2 A      X      Q2      121  0.3       0.3    0.4 
+## 3 A      Y      Q1      140  0.1       0.8    0.1 
+## 4 A      Y      Q2      140  0.5       0.2    0.3 
+## 5 B      X      Q1       50  0.2       0.7    0.1 
+## 6 B      X      Q2       50  0.1       0.5    0.4 
+## 7 B      Z      Q1       57  0.2       0.6    0.2 
+## 8 B      Z      Q2       57  0.4       0.3    0.3</code></pre>
+</div>
+<div id="final-thoughts" class="section level2">
+<h2><span class="header-section-number">5.26</span> Final Thoughts</h2>
+<p>There is far more that <code>tidyverse</code> can do to reshape your data, which I might write up at some point, but these are two great commands that eluded me for a while. Hopefully this is a very quick and simple explanation for you to look up. :)</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="functions.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": ["r-convo-book.pdf", "r-convo-book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
